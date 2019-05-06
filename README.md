@@ -5,14 +5,21 @@
 Es el enunciado del proyecto que se debe entregar antes de comenzar la etapa de codificación se tendrán que indicar los siguientes apartados:
 
 Nombre del proyecto:
+
 Objetivos, descripción y funcionalidad del proyecto:
+
 URL del repositorio GitHub:
 
 URL de la página web:
+
 ¿Cuántas API web vas a usar en el proyecto?:
+
 URL de la API(s) utilizada(s):
+
 Lenguaje(s) de marcas que utiliza(n) la(s) API:
+
 ¿Qué tipo de autentificación tiene(n) la(s) API utilizada(s)?:
+
 ¿Qué métodos vas a usar en las llamada a la API?, es decir, ¿vas a consumir información del servicio web (métodos GET)?, o también, ¿vas a modificar los recursos del servicio web (métodos POST, PUT, DELETE,…)?:
 
 ## Fase 1: Consultas a la API
@@ -26,7 +33,9 @@ Entrega un programa python (que funcione en la terminal) que haga una de las tre
 Explica cada una de las rutas que va a tener la aplicación web:
 
 Nombre de la ruta
+
 ¿Se accede con get o con post?
+
 ¿Qué se hace en esa ruta?
 
 ## Fase 4: Aplicación web en heroku

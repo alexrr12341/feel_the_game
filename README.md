@@ -6,7 +6,7 @@
 
 #### 1-En la primera sección de la aplicación tendremos el inicio de la página.
 
-#### 2-En la segunda sección de la aplicación tendremos estadisticas de varios juegos, donde podremos elegir un videojuego de los mostrados y nos dará nuestras estadisticas.
+#### 2-En la segunda sección de la aplicación tendremos estadisticas de ambos juegos, donde podremos elegir un videojuego de los mostrados y nos dará nuestras estadisticas.
 
 #### 3-En la tercera sección tendremos la sección de eSports, donde se nos mostrará la información mas reciente sobre los eSports.
 

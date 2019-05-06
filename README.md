@@ -2,7 +2,7 @@
 
 ## ¿Que es Feel The Game?
 
-### Feel The Game es una aplicación Web donde se nos presentará distintas informaciones sobre los videojuegos.
+### Feel The Game es una aplicación Web donde se nos presentará distintas informaciones sobre los videojuegos Fortnite y LoL.
 
 #### 1-En la primera sección de la aplicación tendremos el inicio de la página.
 

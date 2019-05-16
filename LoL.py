@@ -21,7 +21,7 @@ def obtener_id(region,invocador):
         else:
                 print('Error en la Api')
         return id
-def obtener_aid(region,invcoador):
+def obtener_aid(region,invocador):
         URL_BASE=obtener_urlbase(region)
         r=requests.get(URL_BASE+'summoner/v4/summoners/by-name/'+'%s'%invocador,params=parametros)
         datos=r.json()
@@ -29,16 +29,18 @@ def obtener_aid(region,invcoador):
                 aid=datos['accountId']
         else:
                 print('Error en la Api')
-        return id
+        return aid
 
 def estadisticas_base(region,invocador):
         URL_BASE=obtener_urlbase(region)
         r=requests.get(URL_BASE+'summoner/v4/summoners/by-name/'+'%s'%invocador,params=parametros)
         datos=r.json()
+        diccbase={}
         if r.status_code==200:
-                print('Nombre:',datos['name'])
-                print('Nivel de invocador:',datos['summonerLevel'])
-                print('Icono de Invocador:',datos['profileIconId'])
+                diccbase['Nombre']=datos['name']
+                diccbase['Nivel']=datos['summonerLevel']
+                diccbase['Icono']=datos['profileIconId']
+                return diccbase
         else:
                 print('Error en la Api')
 print(estadisticas_base(region,invocador))
@@ -47,12 +49,14 @@ def obtener_ligas(region,invocador):
         id=obtener_id(region,invocador)
         s=requests.get(URL_BASE+'league/v4/entries/by-summoner/'+'%s'%id,params=parametros)
         datos2=s.json()
+        diccligas={}
         if s.status_code==200:
                 for info in datos2:
-                        print('Liga:',info['tier'])
-                        print('Rango:',info['rank'])
-                        print('Victorias:',info['wins'])
-                        print('Derrotas:',info['losses'])
+                        diccligas['Liga']=info['tier']
+                        diccligas['Rango']=info['rank']
+                        diccligas['Victorias']=info['wins']
+                        diccligas['Derrotas']=info['losses']
+                        return diccligas
         else:
                 print('Error en la Api')
 print(obtener_ligas(region,invocador))
@@ -94,7 +98,7 @@ def obtener_historial(region,invocador):
         y=requests.get(URL_BASE+'match/v4/matchlists/by-account/%s'%aid,params=parametros)
         datos4=y.json()
         listahistorialid=[]
-        contadorh=0
+        contadorh=1
         if y.status_code==200:
                 for historial in datos4['matches']:
                         listahistorialid.append(historial['gameId'])
@@ -103,16 +107,19 @@ def obtener_historial(region,invocador):
                                 break
         else:
                 print('Error en la Api')
-        contadorH=1
         contadorVs=0
         listakda=[]
         contadorkda=0
         diccnombres={}
+        diccampeon={}
+        listacampeones=[]
+        for campeones in doc['data']:
+                listacampeones.append(campeones)
+        diccampeon={}
+        for campeones in listacampeones:
+                ids=doc['data'][campeones]['key']
+                diccampeon[ids]=doc['data'][campeones]['id']
         for historialid in listahistorialid:
-                print("")
-                print('Historial',contadorH)
-                print("")
-                contadorH+=1
                 u=requests.get(URL_BASE+'match/v4/matches/%s'%historialid,params=parametros)
                 datos5=u.json()
                 if u.status_code==200:
@@ -120,7 +127,6 @@ def obtener_historial(region,invocador):
                                 idsc=infoids['participantId']
                                 diccnombres[idsc]=infoids['player']['summonerName']
                         for informacion in datos5['participants']:
-                                print("")
                                 idpar=informacion['participantId']
                                 campeon=informacion['championId']
                                 campeon2=str(campeon)
@@ -136,4 +142,4 @@ def obtener_historial(region,invocador):
                                 print('Victoria:',informacion['stats']['win'])
                 else:
                         print('Error en la Api')
-print(obtener_aid(region,invocador))
+print(obtener_historial(region,invocador))

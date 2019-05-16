@@ -1,17 +1,44 @@
 Nombre del proyecto:FeelTheGame
 
-Objetivos, descripción y funcionalidad del proyecto:
+Objetivos, descripción y funcionalidad del proyecto:FeelTheGame es una aplicación Web donde podremos ver información de los juegos Fortnite y League of Legends, junto a sus recientes actividades de eSports.
 
-URL del repositorio GitHub:
+URL del repositorio GitHub:https://github.com/alexrr12341/feel_the_game
 
-URL de la página web:
+URL de la página web:https://feelthegame.herokuapp.com/
 
-¿Cuántas API web vas a usar en el proyecto?:
+¿Cuántas API web vas a usar en el proyecto?:5
 
 URL de la API(s) utilizada(s):
-
+Youtube->Base->https://www.youtube.com/iframe_api
+	 Documentacion->
+Twitter-> Base->http://twitter.com/statuses/
+	  Documentacion->
+LeagueOfLegends-> Base-> https://na1.api.riotgames.com/lol/
+		  Documentacion-> 
+Fortnite-> Base-> https://api.fortnitetracker.com/v1/
+	   Documentacion->  https://fortnitetracker.com/site-api
+eSports-> Base-> https://api.gamescorekeeper.com/v1/
+	  Documentacion-> https://docs.gamescorekeeper.com/
 Lenguaje(s) de marcas que utiliza(n) la(s) API:
+
+Youtube->   XML,JSON
+Twitter->  XML,JSON
+LeagueOfLegends-> JSON
+Fortnite->  JSON
+eSports-> JSON
 
 ¿Qué tipo de autentificación tiene(n) la(s) API utilizada(s)?:
 
+Youtube->  ApiKey,OAuth 2
+Twitter->  OAuth 2
+LeagueOfLegends-> ApiKey
+Fortnite->  ApiKey
+eSports-> ApiKey
+
 ¿Qué métodos vas a usar en las llamada a la API?, es decir, ¿vas a consumir información del servicio web (métodos GET)?, o también, ¿vas a modificar los recursos del servicio web (métodos POST, PUT, DELETE,…)?:
+
+Youtube-> GET y POST
+Twitter->POST
+LeagueOfLegends->GET
+Fortnite->GET
+eSports->GET

@@ -29,23 +29,15 @@ def estadisticas_fortnite(plat,jugador):
     tiendasq={}
     tiendadu={}
     tiendaso={}
-    tiendaso2={}
-    tiendadu2={}
-    tiendasq2={}
-    tiendag2={}
     for infoSolo in lista:
         tiendaso[datos['stats']['p2'][infoSolo]['label']]=datos['stats']['p2'][infoSolo]['value']
-    tiendaso2['Solo']=tiendaso
     for infoDuos in lista:
         tiendadu[datos['stats']['p10'][infoDuos]['label']]=datos['stats']['p10'][infoDuos]['value']
-    tiendadu2['Duo']=tiendadu
     for infoSquad in lista:
         tiendasq[datos['stats']['p9'][infoSquad]['label']]=datos['stats']['p9'][infoSquad]['value']
-    tiendasq2['Squad']=tiendasq
     for infoGeneral in datos['lifeTimeStats']:
         tiendag[infoGeneral['key']]=infoGeneral['value']
-    tiendag2['General']=tiendag
-    return tiendag2,tiendasq2,tiendadu2,tiendaso2
+    return tiendag,tiendasq,tiendadu,tiendaso
 #0 = General
 #1 = Squad
 #2 = Duo

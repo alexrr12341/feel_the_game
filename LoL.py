@@ -73,24 +73,21 @@ def obtener_maestrias(region,invocador):
         for campeones in listacampeones:
                 ids=doc['data'][campeones]['key']
                 diccampeon[ids]=doc['data'][campeones]['id']
-        print('Maestrias de campeones')
         if t.status_code==200:
                 listamaestrias=[]
                 diccmaestrias={}
                 for maestrias in datos3:
                         idc=maestrias['championId']
                         idc2=str(idc)
-                        print(idc2)
                         diccmaestrias['Campeon']=diccampeon[idc2]
                         diccmaestrias['Puntos']=maestrias['championPoints']
                         diccmaestrias['Nivel']=maestrias['championLevel']
-                        listamaestrias.append(diccmaestrias)
-                        print(listamaestrias)
+                        listamaestrias.append(diccmaestrias.copy())
                         contador+=1
                         if contador>=5:
                                 break
                         
-                print(listamaestrias)
+                return listamaestrias
         else:
                 print('Error en la Api')
 print(obtener_maestrias(region,invocador))
@@ -110,12 +107,14 @@ def obtener_historial(region,invocador):
                                 break
         else:
                 print('Error en la Api')
-        contadorVs=0
         listakda=[]
         contadorkda=0
         diccnombres={}
         diccampeon={}
         listacampeones=[]
+        dicchistorial={}
+        contadord=1
+        listahistorial=[]
         for campeones in doc['data']:
                 listacampeones.append(campeones)
         diccampeon={}
@@ -133,16 +132,24 @@ def obtener_historial(region,invocador):
                                 idpar=informacion['participantId']
                                 campeon=informacion['championId']
                                 campeon2=str(campeon)
-                                print('Participante:',diccnombres[idpar])
-                                print('Nivel',informacion['stats']['champLevel'])
-                                print('Campeon',diccampeon[campeon2])
-                                print('KDA:',informacion['stats']['kills'],'/',informacion['stats']['deaths'],'/',informacion['stats']['assists'])
-                                print('Daño total',informacion['stats']['totalDamageDealt'])
-                                print('Vision',informacion['stats']['visionScore'])
-                                print('Oro Conseguido',informacion['stats']['goldEarned'])
-                                print('Torretas destruidas',informacion['stats']['turretKills'])
-                                print('Inhibidores destruidos',informacion['stats']['inhibitorKills'])
-                                print('Victoria:',informacion['stats']['win'])
+                                kills=informacion['stats']['kills']
+                                deaths=informacion['stats']['deaths']
+                                assists=informacion['stats']['assists']
+                                kda='%s/%s/%s'%(kills,deaths,assists)
+                                dicchistorial['Nombre%i'%contadord]=diccnombres[idpar]
+                                dicchistorial['Nivel%i'%contadord]=informacion['stats']['champLevel']
+                                dicchistorial['Campeon%i'%contadord]=diccampeon[campeon2]
+                                dicchistorial['KDA%i'%contadord]=kda
+                                dicchistorial['Daño%i'%contadord]=informacion['stats']['totalDamageDealt']
+                                dicchistorial['Vision%i'%contadord]=informacion['stats']['visionScore']
+                                dicchistorial['Oro%i'%contadord]=informacion['stats']['goldEarned']
+                                dicchistorial['Torretas%i'%contadord]=informacion['stats']['turretKills']
+                                dicchistorial['Inhibidor%i'%contadord]=informacion['stats']['inhibitorKills']
+                                dicchistorial['Victoria%i'%contadord]=informacion['stats']['win']
+                                contadord+=1
+                                if contadord>10:
+                                        contadord-=9
+                        listahistorial.append(dicchistorial.copy())
                 else:
                         print('Error en la Api')
-print(obtener_historial(region,invocador))
+        return listahistorial

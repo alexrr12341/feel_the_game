@@ -7,7 +7,6 @@ r=requests.get(URL_BASE+'//lol/tournaments/running',params=parametros)
 datos=r.json()
 diccequipos={}
 dicctorneo={}
-print(datos)
 def sacar_torneo():
         for torneos in datos:
                 torneo=torneos['league']['name'].capitalize()
@@ -36,5 +35,31 @@ def conseguir_enfrentamientos():
         return listaequipos
 t=requests.get(URL_BASE+'//lives',params=parametros)
 datos2=t.json()
-for torneosdirecto in datos2:
-    print('Hola')
+def obtener_enfrentamientos_lives():
+        dicclol={}
+        listalol=[]
+        for torneosdirecto in datos2:
+                if torneosdirecto['event']['game']=='league-of-legends':
+                        dicclol['URLStream']=torneosdirecto['event']['stream_url']
+                        dicclol['Juego']=torneosdirecto['event']['game']
+                        dicclol['id']=torneosdirecto['event']['id']
+                        dicclol['Tid']=torneosdirecto['event']['tournament_id']
+                        listalol.append(dicclol.copy())
+        return listalol
+def obtener_match_lives():
+        diccmatch={}
+        listamatch=[]
+        listaids=[]
+        diccenfrentamiento={}
+        for identificador in obtener_enfrentamientos_lives():
+                listaids.append(identificador['Tid'])
+        for ids in listaids:
+                for matches in datos2:
+                        if matches['match']['tournament']['id']==ids:
+                                diccmatch['Termina']=matches['match']['tournament']['end_at']
+                                diccmatch['Nombre']=matches['match']['tournament']['slug'].capitalize()
+                                diccmatch['NombreMatch']=matches['match']['name']
+                                listamatch.append(diccmatch.copy())
+        return listamatch
+#league-of-legends
+

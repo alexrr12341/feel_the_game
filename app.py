@@ -1,10 +1,12 @@
 from flask import Flask, redirect, render_template, request, session, url_for
 from urllib.parse import parse_qs
 import os
+from Fortnite import *
 app = Flask(__name__)
 @app.route('/',methods=['POST','GET'])
 def inicio():
-    return render_template('index.html')
+    listat=tienda_fortnite()
+    return render_template('index.html',listat=listat)
 @app.route('/estadisticas',methods=['POST','GET'])
 def estadisticas():
     return render_template('estadisticas.html')

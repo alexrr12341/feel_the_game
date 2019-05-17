@@ -1,0 +1,623 @@
+/*
+ * Author: Carlos Alvarez
+ * URL: http://alvarez.is
+ *
+ * Project Name: SPOT - Free Bootstrap 3 Theme
+ * Version: 1.0
+ * URL: http://blacktie.co
+ */
+ 
+/* FONTS */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700,900);
+
+/* OVERALL ASPECT */
+
+body {
+	background: url(../img/fondo0.jpg) no-repeat center;
+	background-attachment: fixed;
+  	background-color: #f2f2f2;
+	font-family: "Lato";
+	font-weight: bold;
+	font-size: 16px;
+	color: #2279CF;
+	margin-top: 70px;
+}
+
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Raleway";
+	font-weight: 300;
+	color: white;
+}
+
+
+/* Paragraph & Typographic */
+p {
+	line-height: 15px;
+	margin-bottom: 15px;
+}
+
+.centered {
+	text-align: center;
+}
+
+/* Links */
+a {
+	color: #f85c37;
+	word-wrap: break-word;
+	transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+a:hover,
+a:focus {
+	color: #7b7b7b;
+	text-decoration: none;
+	outline: 0;
+}
+
+a:before,
+a:after {
+	transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+ hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+
+.navbar {
+	font-weight: 800;
+	font-size: 14px;
+	padding-top: 15px;
+}
+
+.navbar-inverse {
+	background: #2d2d2d;
+	border-color: Grey;
+}
+
+.navbar-inverse .navbar-nav > .active > a {
+	background: #2279CF;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #999999;
+	font-weight: bolder;
+	font-size: 22px;
+	letter-spacing: 1px;
+}
+
+.navbar-inverse .navbar-brand i {
+	color: #2279CF;
+	font-size: 22px;
+	letter-spacing: 1px;
+}
+
+/*TILT*/
+.tilt {
+		  transition: all 0.5s ease;
+}
+ 
+.tilt:hover {
+		  transform: rotate(-10deg);
+}
+
+/* ==========================================================================
+   Wrap Sections
+   ========================================================================== */
+
+#headerwrap {
+	margin-top: 15px;
+	padding-top:40px;
+	text-align:center;
+	background-position: center center;
+	min-height: 600px;
+	width: 100%;
+	background-size: 100%;
+	background-size: cover;
+}
+
+#headerwrap h1 {
+	margin-top: 100px;
+	color: white;
+	font-size: 70px;
+	font-weight: 300;
+	letter-spacing: 3px;
+}
+
+#headerwrap h2 {
+	color: white;
+	font-size: 40px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+/* Dark Grey Wrap */
+#dg {
+	background: #e0e0e0;
+	padding-top: 70px;
+	padding-bottom: 70px;
+	text-align: center;
+}
+
+#dg h4 {
+	font-weight: 700;
+}
+
+/* Light Grey */
+#lg {
+	background: #ebebeb;
+	padding-top: 70px;
+	padding-bottom: 70px;
+	text-align: center;
+}
+
+#lg h4 {
+	font-weight: 700;
+}
+
+
+/* Red Wrap */
+#r {
+	background: #ff7878;
+	padding-top: 35px;
+	padding-bottom: 35px;
+}
+
+#r h4 {
+	color: white;
+	font-weight: 700;
+}
+
+#r p {
+	color: white;
+}
+
+/* Blue Wrap */
+
+#blue {
+	background: #3498db;
+	padding-top: 35px;
+	padding-bottom: 35px;
+}
+
+#blue h4 {
+	color: white;
+	font-weight: 700;
+}
+
+#blue p {
+	color: white;
+}
+
+
+
+/* Footer Wrap */
+#f {
+	position: relative;
+	background: #2d2d2d;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-bottom: 0;
+}
+
+#f i {
+	color: #bdbdbd;
+	font-size: 30px;
+	padding: 20px;
+}
+
+#f i:hover {
+	color: #ff7878;
+}
+
+/****** SECTIONS *****/
+
+.w {
+	padding-top: 35px;
+}
+
+.w h4 {
+	font-weight: 700;
+}
+
+.w i {
+	color: #ff7878;
+	font-size: 30px;
+}
+
+
+.wb {
+	padding-top: 35px;
+	margin-bottom: 0px;
+}
+
+.wb h4 {
+	font-weight: 700;
+}
+
+.desc {
+	padding-top: 35px;
+}
+
+.desc h4 {
+	font-weight: 700;
+}
+
+.desc i {
+	color: #ff7878;
+	font-size: 12px;
+	padding: 5px;
+}
+
+/***** MODAL CONTACT *****/
+.modal-content {
+	border-radius: 0px;
+
+}
+
+.modal-header {
+	background: #bdbdbd;
+	color: white;
+}
+
+.modal-header h4 {
+	font-weight: 700;
+}
+
+.modal-body {
+	background: #f2f2f2;
+	font-family: "Lato";
+	font-weight: 300;
+	font-size: 16px;
+	color: #555;
+}
+
+.modal-footer {
+	background: #f2f2f2;
+	margin-top: 0px; 
+}
+
+/* ==========================================================================
+   Pricing Tables
+   ========================================================================== */
+   
+.pricing-option {
+	padding-bottom: 40px;
+}
+
+.pricing-option .pricing-top {
+	position: relative;
+	background: #222;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+
+	padding: 40px 20px 30px 20px;
+	box-sizing: border-box;
+}
+
+.pricing-option .pricing-top .special-label {
+	display: block;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #1abc9c;
+	text-transform: uppercase;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 0;
+}
+
+.special .pricing-top {
+	background: black;
+}
+
+.pricing-option .pricing-edition {
+	text-transform: uppercase;
+	display: block;
+	font-size: 25px;
+	letter-spacing: 8px;
+}
+
+.pricing-option .price {
+	display: inline-block;
+	position: relative;
+}
+
+.pricing-option .price sup {
+	position: absolute;
+	top: 50px;
+	left: -10px;
+	font-size: 24px;
+}
+
+.pricing-option .price .price-amount {
+	font-size: 108px;
+	letter-spacing: -4px;
+}
+
+.pricing-option .price small {
+	position: relative;
+	left: -10px;
+	font-size: 18px;
+}
+
+.pricing-option ul {
+	list-style: none;
+	margin: 0;
+	background: #eee;
+	text-align: center;
+	padding-left: 0px;
+}
+
+.pricing-option ul li {
+	border-bottom: solid 1px #e1e1e1;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.pricing-option .pricing-signup {
+	display: block;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 15px 10px;
+	color: white;
+	background: #1abc9c;
+}
+
+.pricing-option .pricing-signup:hover {
+	background: #ff7878;
+}
+
+
+/* ==========================================================================
+   PERSONALIZADO
+   ========================================================================== */
+
+#f {
+	color: #2279CF;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+/* formulario principal */
+
+.invocador {
+	position: relative;
+	font-size: 18px;
+	font-weight: bold;
+	color: #2279CF;
+	margin: 5% 0 5% 0;
+	border: 1px solid #2279CF;
+	padding-bottom: 20px;
+	background: black;
+	opacity: 0.7;
+}
+
+.invocador legend{
+	font-size: 18px;
+	font-weight: bold;
+	color: #2279CF;
+}
+
+select,input{
+	background-color: #2279CF;
+	color: black;
+	text-align: center;
+	border-radius: 10px;
+	border-color: #FC5252;
+	margin: 5px;
+}
+
+input[type=text]{
+	background-image: url('../img/search.png');
+	background-position: 10px 8px;
+	background-repeat: no-repeat;
+	background-size: 15px;
+	padding-left: 30px;
+}
+
+input[type=text]:focus,select:focus {
+	background-color: lightblue;
+	border: 3px solid #555;
+}
+
+input[type=submit] {
+	background-color: #2279CF;
+	color: black;
+	text-align: center;
+	box-shadow: 0px 0px 2px 5px #FC5252;
+	font-weight: bold;
+}
+
+input[type=submit]:hover {
+	background-color: #FC5252;
+}
+
+/* INVOCADOR */
+
+.info_invocador{
+	margin: 100px 0 100px 10%;
+	border: 1px solid #2279CF;
+	padding-bottom: 20px;
+	background: black;
+	opacity: 0.7;  
+	height: 250px;
+	width: 750px;
+}
+
+.info_invocador div div{
+	width: 33%;
+	float: left;
+	padding: : 20px 0 20px 0;
+}
+
+.partida_invocador {
+	margin: 0 0 10% 10%;
+	border: 1px solid #2279CF;
+	padding-bottom: 20px;
+	background: black;
+	opacity: 0.7;
+	width: 750px;
+}
+
+.partida_invocador .cabecera_partida{
+	width: 33%;
+	float: left;
+	margin: 20px 0 20px 0;
+	height: 100px;
+}
+
+.partida_invocador div{
+	height: 500px; 
+}
+
+.partida_invocador div div{
+	width: 20%;
+	float: left;
+	margin: 20px 0 20px 0;
+}
+
+.comandos{
+	position: relative;
+	font-family: monospace;
+	font-size: 16px;
+	border: 1px solid #2279CF;
+	height: 150px !important;
+	margin: 20px 10px 20px 10px !important;
+}
+
+.comandos p{
+	position: relative;
+	background: white;
+	margin: 10px 10px 10px 10px !important;
+	color: black !important;
+}
+
+
+/* campeones gratuitos */
+
+.campeones_gratis{
+	margin: 100px 0 100px 0;
+	border: 1px solid #2279CF;
+	padding-bottom: 20px;
+	background: black;
+	opacity: 0.7;  
+	height: 900px;  
+}
+
+.campeones_gratis div div{
+	width: 20%;
+	float: left;
+	padding: 20px 0 20px 0;
+}
+
+/* twitter */
+
+.twitter{
+	height: 50px !important;
+}
+
+/* historial */
+
+.historial_invocador {
+	margin-bottom: 50px;
+	border: 1px solid #2279CF;
+	padding-bottom: 20px;
+	background: black;
+	opacity: 0.7;
+	width: 750px;
+	margin-left: 5%;
+}
+
+.historial_invocador div{
+	height: 230px; 
+}
+
+.historial_invocador div div{
+	width: 120px;
+	float: left;
+	height: 180px;
+}
+
+.partida_victoria{
+	border: 2px solid Green;
+	margin: 20px;
+}
+
+.partida_victoria h3{
+	color: Green;
+	text-align: center;
+	font-size: 26px;
+	font-weight: bold;
+}
+
+.partida_derrota{
+	border: 2px solid Red;
+	margin: 20px;
+}
+
+.partida_derrota h3{
+	color: Red;
+	text-align: center;
+	font-size: 26px;
+	font-weight: bold;
+}
+
+.botones{
+	height: 50px !important;
+}
+
+.botones a{
+	margin: 0 10px 0 10px;
+	background-color: #2279CF;
+	color: black;
+	text-align: center;
+	box-shadow: 0px 0px 2px 5px #FC5252;
+	font-weight: bold;
+}
+
+.botones a:hover {
+	background-color: #FC5252;
+}
+
+.objetos{
+	width: 400px !important;
+}
+
+.navbar-inverse .navbar-nav > .active2 > a {
+	background: Grey;
+	color: #691818 !important;
+}
+
+.twittear {
+	margin: -50px 0 50px 10%;
+	width: 750px;
+}
+
+.twittear a {
+	background-color: #2279CF;
+	color: black;
+	text-align: center;
+	box-shadow: 0px 0px 2px 5px #FC5252;
+	font-weight: bold;
+}
+
+.twittear {
+	margin: -50px 0 50px 10%;
+	width: 750px;
+}
+
+.twittear a:hover {
+	background-color: #FC5252;
+}

@@ -1,10 +1,20 @@
-import requests
+from flask import Flask, redirect, render_template, request, session, url_for
+from urllib.parse import parse_qs
 import os
-key=os.environ['keyfort']
-headers={'TRN-Api-Key' : key}
-URL_BASE="https://api.fortnitetracker.com/v1/profile/"
-plataforma=str(input("Dime la plataforma "))
-cuenta=str(input("Dime la cuenta "))
-r=requests.get(URL_BASE+'%s/%s'%(plataforma,cuenta),headers=headers)
-doc = r.json()
-print(doc)
+app = Flask(__name__)
+@app.route('/',methods=['POST','GET'])
+def inicio():
+    return render_template('index.html')
+@app.route('/estadisticas',methods=['POST','GET'])
+def estadisticas():
+    return render_template('estadisticas.html')
+@app.route('/esports',methods=['POST','GET'])
+def esports():
+    return render_template('esports.html')
+@app.route('/guias',methods=['POST','GET'])
+def guias():
+    return render_template('guias.html')
+@app.route('/metas',methods=['POST','GET'])
+def metas():
+    return render_template('metas.html')
+app.run(debug=True)

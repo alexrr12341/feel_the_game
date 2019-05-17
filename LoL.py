@@ -75,19 +75,22 @@ def obtener_maestrias(region,invocador):
                 diccampeon[ids]=doc['data'][campeones]['id']
         print('Maestrias de campeones')
         if t.status_code==200:
+                listamaestrias=[]
+                diccmaestrias={}
                 for maestrias in datos3:
-                                #Esto lo hago por si el campeon no esta en la lista, al ser un texto plano puede estar desactualizada la información que da League of Legends
-                        try:
-                                idc=maestrias['championId']
-                                idc2=str(idc)
-                                print('Campeon :',diccampeon[idc2])
-                                print('Puntos de Maestria :',maestrias['championPoints'])
-                                print('Nivel de Campeon :',maestrias['championLevel'])
-                                contador+=1
-                                if contador>=5:
-                                        break
-                        except:
-                                contador-=1
+                        idc=maestrias['championId']
+                        idc2=str(idc)
+                        print(idc2)
+                        diccmaestrias['Campeon']=diccampeon[idc2]
+                        diccmaestrias['Puntos']=maestrias['championPoints']
+                        diccmaestrias['Nivel']=maestrias['championLevel']
+                        listamaestrias.append(diccmaestrias)
+                        print(listamaestrias)
+                        contador+=1
+                        if contador>=5:
+                                break
+                        
+                print(listamaestrias)
         else:
                 print('Error en la Api')
 print(obtener_maestrias(region,invocador))

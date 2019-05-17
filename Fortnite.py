@@ -9,15 +9,12 @@ def tienda_fortnite():
     tiendaf={}
     listaf=[]
     for tienda in datos2:
-        print('Nombre:',tienda['name'])
-        print('Rareza',tienda['rarity'])
-        print('vBucks',tienda['vBucks'])
-        print('Imagen',tienda['imageUrl'])
         tiendaf['Nombre']=tienda['name'] 
         tiendaf['Rareza']=tienda['rarity']
         tiendaf['VBucks']=tienda['vBucks']
+        tiendaf['Tipo']=tienda['storeCategory']
         tiendaf['Imagen']=tienda['imageUrl']
-        listaf.append(tiendaf)
+        listaf.append(tiendaf.copy())
     return listaf
 def estadisticas_fortnite(plat,jugador):
     r=requests.get(URL_BASE+'profile/%s/%s'%(plat,jugador),headers=header)

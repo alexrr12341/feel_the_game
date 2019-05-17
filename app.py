@@ -18,7 +18,7 @@ def procesar_fortnite():
     plat=datos['plataforma']
     jugador=datos['cuenta']
     datosf=estadisticas_fortnite(plat,jugador)
-    return render_template('fortnite.html',datos=datosf)
+    return render_template('fortnite.html',datosf=datosf)
 @app.route('/esports',methods=['POST','GET'])
 def esports():
     return render_template('esports.html')

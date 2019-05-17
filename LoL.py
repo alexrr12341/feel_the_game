@@ -27,7 +27,6 @@ def obtener_aid(region,invocador):
         else:
                 print('Error en la Api')
         return aid
-
 def estadisticas_base(region,invocador):
         URL_BASE=obtener_urlbase(region)
         r=requests.get(URL_BASE+'summoner/v4/summoners/by-name/'+'%s'%invocador,params=parametros)
@@ -40,8 +39,6 @@ def estadisticas_base(region,invocador):
                 return diccbase
         else:
                 print('Error en la Api')
-print(estadisticas_base(region,invocador))
-
 def obtener_ligas(region,invocador):
         id=obtener_id(region,invocador)
         s=requests.get(URL_BASE+'league/v4/entries/by-summoner/'+'%s'%id,params=parametros)
@@ -56,7 +53,6 @@ def obtener_ligas(region,invocador):
                         return diccligas
         else:
                 print('Error en la Api')
-print(obtener_ligas(region,invocador))
 def obtener_maestrias(region,invocador):
         URL_BASE=obtener_urlbase(region)
         id=obtener_id(region,invocador)
@@ -87,8 +83,6 @@ def obtener_maestrias(region,invocador):
                 return listamaestrias
         else:
                 print('Error en la Api')
-print(obtener_maestrias(region,invocador))
-
 def obtener_historial(region,invocador):
         URL_BASE=obtener_urlbase(region)
         aid=obtener_aid(region,invocador)

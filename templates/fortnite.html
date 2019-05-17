@@ -1,0 +1,17 @@
+<!doctype html>
+{% extends "base.html" %}
+{% block fortnite %}
+	<div class="campeones_gratis">
+		<h1>Estadísticas Fortnite</h1>
+		<div>
+			{% for informacion in datosf[0] %-}
+				{{informacion}}
+			{% endfor -%}
+		</div>
+	</div>
+{% endblock %}
+	<script src="../static/js/jquery.min.js"></script>
+	<script src="../static/js/slick.min.js"></script>
+	<script src="../static/js/main.js"></script>
+</body>
+</html>

@@ -2,13 +2,29 @@ import requests
 import os
 import json
 import codecs
+doc=json.load(codecs.open('CampeonesInfo.json', 'r', 'utf-8-sig'))
+key=os.environ["keylol"]
+parametros={'api_key':key,'locale':'es_ES'}
 def obtener_urlbase(region):
         URL_BASE='https://%s.api.riotgames.com/lol/'%region
         return URL_BASE
-doc=json.load(codecs.open('CampeonesInfo.json', 'r', 'utf-8-sig'))
-key=os.environ["keylol"]
-URL_BASE='https://%s.api.riotgames.com/lol/'%region
-parametros={'api_key':key,'locale':'es_ES'}
+def obtener_rotacion():
+        #Ponemos esta URL ya que las rotaciones no cambian
+        t=requests.get('https://euw1.api.riotgames.com/lol/platform/v3/champion-rotations',params=parametros)
+        datos=t.json()
+        listacampeones=[]
+        diccampeon={}
+        listacampeones2=[]
+        for campeones in doc['data']:
+                listacampeones.append(campeones)
+        for campeones in listacampeones:
+                ids=doc['data'][campeones]['key']
+                diccampeon[ids]=doc['data'][campeones]['id']
+        if t.status_code==200:
+                for ids in datos['freeChampionIds']:
+                        ids2=str(ids)
+                        listacampeones2.append(diccampeon[ids2])
+                return listacampeones2
 def obtener_id(region,invocador):
         URL_BASE=obtener_urlbase(region)
         r=requests.get(URL_BASE+'summoner/v4/summoners/by-name/'+'%s'%invocador,params=parametros)
@@ -40,6 +56,7 @@ def estadisticas_base(region,invocador):
         else:
                 print('Error en la Api')
 def obtener_ligas(region,invocador):
+        URL_BASE=obtener_urlbase(region)
         id=obtener_id(region,invocador)
         s=requests.get(URL_BASE+'league/v4/entries/by-summoner/'+'%s'%id,params=parametros)
         datos2=s.json()

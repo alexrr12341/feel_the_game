@@ -5,9 +5,23 @@
 		<div>
 	{% for datos in listat -%}
 		<div>
-			<img src="{{datos['Imagen']}}" width="100" height="100">
+			<img src="{{datos['Imagen']}}" width="170" height="210">
 			<h4 class="single-book__title">{{datos['Nombre']}}</h4>
 			<h4 class="single-book__title">{{datos['VBucks']}} paVos</h4>
+		</div>
+	{% endfor %}
+		</div>
+	</div>
+{% endblock %}
+
+{% block contenido2 %}
+	<div class="campeones_gratis">
+		<h1>Rotación Gratuita LoL</h1>
+		<div>
+	{% for datos in listal -%}
+		<div>
+			<img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{datos}}_0.jpg" width="140" height="190">
+			<h4 class="single-book__title">{{datos}}</h4>
 		</div>
 	{% endfor %}
 		</div>

@@ -1,74 +1,31 @@
 <!doctype html>
-<!--
-	Author by FreeHTML5.co
-	Twitter: https://twitter.com/fh5co
-	Facebook: https://fb.com/fh5co
-	URL: https://freehtml5.co
--->
-<html lang="en">
-<head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="../static/css/style.css">
-	<link rel="stylesheet" href="../static/css/slick.css">
-	<title>Author</title>
-</head>
-<body>
-
-	<!-- Navigation -->
-	<nav class="site-navigation">
-		<div class="site-navigation-inner site-container">
-			<img src="../static/images/site-logo.png" alt="site logo">
-			<div class="main-navigation">
-				<ul class="main-navigation__ul">
-					<li><a href="/">Home</a></li>
-					<li><a href="/estadisticas">Estadisticas</a></li>
-					<li><a href="/esports">eSports</a></li>
-					<li><a href="/guias">Guias</a></li>
-					<li><a href="/metas">Metas y Objetivos</a></li>
-				</ul>
-			</div>
-			<div id="myBtn" class="burger-container" onclick="myFunction(this)">
-				<div class="bar1"></div>
-				<div class="bar2"></div>
-				<div class="bar3"></div>
-			</div>
-			<script>
-				function myFunction(x) {
-					x.classList.toggle("change");
-				}
-			</script>
-
+{% extends "base.html" %}
+{% block contenido1 %}
+	<div class="campeones_gratis">
+		<h1>Estadísticas Fortnite</h1>
+		<div>
+			<form action="/fortnite" method="post">
+			<p>
+			Cuenta: <input type="text" name="cuenta" autofocus required/>
+			<select name="plataforma">
+                		<option value="pc">Pc</option>
+                		<option value="psn">PlayStation</option>
+                		<option value="xbl">XBox</option>
+        		</select>
+			<input type="submit" value="Enviar!" />
+			</form>
 		</div>
-	</nav>
-	<!-- Navigation end -->
+	</div>
+{% endblock %}
 
-	<!-- Top banner -->
-	<section class="fh5co-top-banner">
-		<div class="top-banner__inner site-container">
-			<div class="top-banner__image">
-				<img src="../static/images/top-banner-author.jpg" alt="author image">
-			</div>
-			<div class="top-banner__text">
-				<div class="top-banner__text-up">
-					<span class="brand-span">Hello! I'm</span>
-					<h2 class="top-banner__h2">Jhone</h2>
-				</div>
-				<div class="top-banner__text-down">
-					<h2 class="top-banner__h2">Smith</h2>
-					<span class="brand-span">Author, Writer, Traveler</span>
-				</div>
-				<p>One Man. One Mission. Can He Go Beyond?One Man. One Mission. Can He Go Beyond?</p>
-				<a href="#" class="brand-button">Read bio > </a>
-			</div>
+{% block contenido2 %}
+	<div class="campeones_gratis">
+		<h1>Estadísticas League of Legends</h1>
+		<div>
+			
 		</div>
-	</section>
-	<!-- Top banner end -->
-
-	<!-- About me -->
-
-	<!-- Scripts -->
+	</div>
+{% endblock %}
 	<script src="../static/js/jquery.min.js"></script>
 	<script src="../static/js/slick.min.js"></script>
 	<script src="../static/js/main.js"></script>

@@ -29,7 +29,7 @@ def estadisticas_fortnite(plat,jugador):
     tiendasq={}
     tiendadu={}
     tiendaso={}
-    if t.status_code==200:
+    if r.status_code==200:
         for infoSolo in lista:
             tiendaso[datos['stats']['p2'][infoSolo]['label']]=datos['stats']['p2'][infoSolo]['value']
         for infoDuos in lista:

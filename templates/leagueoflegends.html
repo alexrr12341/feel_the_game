@@ -1,0 +1,60 @@
+<!doctype html>
+{% extends "base.html" %}
+{% block lol %}
+	<div class="campeones_gratis">
+		<h1>Estadísticas League of Legends</h1>
+		<div>
+			<img src="http://ddragon.leagueoflegends.com/cdn/9.9.1/img/profileicon/{{base['Icono']}}.png" width="50" height="50"/>
+			Invocador: {{base['Nombre']}}
+			<br/>
+			Nivel: {{base['Nivel']}}
+			<br/>
+			<br/>
+			<img src="../static/images/Emblem_{{liga['Liga']}}.png" width="50" height="50"/>
+			Liga: {{liga['Liga']}}
+			<br/>
+			Rango: {{liga['Rango']}}
+			<br/>
+			Victorias: {{liga['Victorias']}}
+			<br/>
+			Derrotas: {{liga['Derrotas']}}
+			<br/>
+			<br/>
+			<table>
+				<thead>
+					<tr>
+						<th>Icono</th><th>Campeon</th><th>Puntos</th><th>Nivel</th>
+					</tr>
+				</thead>
+				{% for campeones in maestrias -%}
+					<tr>
+						<td><img src="http://ddragon.leagueoflegends.com/cdn/9.9.1/img/champion/{{campeones['Campeon']}}.png" width="50" height="50"/></td><td>{{campeones['Campeon']}}</td><td>{{campeones['Puntos']}}</td><td>{{campeones['Nivel']}}</td>
+					</tr>
+				{% endfor -%}
+				
+			</table>
+		</div>
+		<h1 font color="blue">Historial League of Legends</h1>
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th>Campeon</th><th>Vision</th><th>KDA</th><th>Objetos</th><th>Daño</th><th>Oro</th><th>Ganador</th>
+					</tr>
+				</thead>
+				{% for historico in historial -%}
+					<tr>
+						<td><img src="http://ddragon.leagueoflegends.com/cdn/9.9.1/img/champion/{{historico['Campeon']}}.png" width="50" height="50"/></td><td>{{historico['Vision']}}</td><td>{{historico['KDA']}}</td><td><img src="http://ddragon.leagueoflegends.com/cdn/9.10.1/img/item/{{historico['Item0']}}.png" width="30" height="30"/><img src="http://ddragon.leagueoflegends.com/cdn/9.10.1/img/item/{{historico['Item1']}}.png" width="30" height="30"/><img src="http://ddragon.leagueoflegends.com/cdn/9.10.1/img/item/{{historico['Item2']}}.png" width="30" height="30"/><img src="http://ddragon.leagueoflegends.com/cdn/9.10.1/img/item/{{historico['Item3']}}.png" width="30" height="30"/><img src="http://ddragon.leagueoflegends.com/cdn/9.10.1/img/item/{{historico['Item4']}}.png" width="30" height="30"/>
+<img src="http://ddragon.leagueoflegends.com/cdn/9.10.1/img/item/{{historico['Item5']}}.png" width="30" height="30"/>
+<img src="http://ddragon.leagueoflegends.com/cdn/9.10.1/img/item/{{historico['Item6']}}.png" width="30" height="30"/></td><td>{{historico['Daño']}}</td><td>{{historico['Oro']}}</td><td>{{historico['Victoria']}}</td>
+					</tr>
+				{% endfor -%}
+		</div>
+	</div>
+{% endblock %}
+	<script src="../static/js/jquery.min.js"></script>
+	<script src="../static/js/slick.min.js"></script>
+	<script src="../static/js/main.js"></script>
+
+</body>
+</html>

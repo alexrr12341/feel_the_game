@@ -2,75 +2,30 @@
 {% extends "base.html" %}
 {% block fortnite %}
 	<div class="campeones_gratis">
-		<h1>Estadísticas Fortnite</h1>
+		<h2>Jugador: {{jugador}}</h2>
+		<br/>
 		<div>
-			<br/>
-			<h2>Información General</h2>
-			Partidas Jugadas: {{datosf[0]['Matches Played']}}
-			<br/>
-			Kills: {{datosf[0]['Kills']}}
-			<br/>
-			Victorias: {{datosf[0]['Wins']}}
-			<br/>
-			K/d: {{datosf[0]['K/d']}}
-			<br/>
-			Puntuación: {{datosf[0]['Score']}}
-			<br/>
-			Victorias%: {{datosf[0]['Win%']}}
-			<br/>
-			Top 6: {{datosf[0]['Top 6s']}}
-			<br/>
-			Top 12: {{datosf[0]['Top 12s']}}
-			<br/>
-			Top 25: {{datosf[0]['Top 25s']}}
-			<h2>Información de Squads</h2>
-			Partidas Jugadas: {{datosf[1]['Matches']}}
-			<br/>
-			Kills: {{datosf[1]['Kills']}}
-			<br/>
-			Victorias: {{datosf[1]['Wins']}}
-			<br/>
-			K/d: {{datosf[1]['K/d']}}
-			<br/>
-			Puntuación: {{datosf[1]['Score']}}
-			<br/>
-			Victorias%: {{datosf[1]['Win %']}}
-			<br/>
-			Top 10: {{datosf[1]['Top 10']}}
-			<br/>
-			Top 25: {{datosf[1]['Top 25']}}
-			<h2>Información de Duos</h2>
-			Partidas Jugadas: {{datosf[2]['Matches']}}
-			<br/>
-			Kills: {{datosf[2]['Kills']}}
-			<br/>
-			Victorias: {{datosf[2]['Wins']}}
-			<br/>
-			K/d: {{datosf[2]['K/d']}}
-			<br/>
-			Puntuación: {{datosf[2]['Score']}}
-			<br/>
-			Victorias%: {{datosf[2]['Win %']}}
-			<br/>
-			Top 10: {{datosf[2]['Top 10']}}
-			<br/>
-			Top 25: {{datosf[2]['Top 25']}}
-			<h2>Información de Solo</h2>
-			Partidas Jugadas: {{datosf[3]['Matches']}}
-			<br/>
-			Kills: {{datosf[3]['Kills']}}
-			<br/>
-			Victorias: {{datosf[3]['Wins']}}
-			<br/>
-			K/d: {{datosf[3]['K/d']}}
-			<br/>
-			Puntuación: {{datosf[3]['Score']}}
-			<br/>
-			Victorias%: {{datosf[3]['Win %']}}
-			<br/>
-			Top 10: {{datosf[3]['Top 10']}}
-			<br/>
-			Top 25: {{datosf[3]['Top 25']}}
+					<table>
+						<thead>
+							<tr>
+								<th>Tipo</th><th>Partidas Jugadas</th><th>Kills</th><th>Victorias</th><th>K/d</th><th>Puntuación</th><th>Victorias %</th>
+							</tr>
+						</thead>
+
+						<tr>
+							<td>General</td><td>{{datosf[0]['Matches Played']}}</td><td>{{datosf[0]['Kills']}}</td><td>{{datosf[0]['Wins']}}</td><td>{{datosf[0]['K/d']}}</td><td>{{datosf[1]['Score']}}</td><td>{{datosf[0]['Win%']}}</td>
+						</tr>
+						<tr>
+							<td>Squad</td><td>{{datosf[1]['Matches']}}</td><td>{{datosf[1]['Kills']}}</td><td>{{datosf[2]['Wins']}}</td><td>{{datosf[1]['K/d']}}</td><td>{{datosf[2]['Score']}}</td><td>{{datosf[1]['Win %']}}%</td>
+						</tr>
+						<tr>
+							<td>Duo</td><td>{{datosf[2]['Matches']}}</td><td>{{datosf[2]['Kills']}}</td><td>{{datosf[2]['Wins']}}</td><td>{{datosf[2]['K/d']}}</td><td>{{datosf[2]['K/d']}}</td><td>{{datosf[2]['Win %']}}%</td>
+						</tr>
+						<tr>
+							<td>Solo</td><td>{{datosf[3]['Matches']}}</td><td>{{datosf[3]['Kills']}}</td><td>{{datosf[3]['Wins']}}</td><td>{{datosf[3]['K/d']}}</td><td>{{datosf[3]['Score']}}</td><td>{{datosf[3]['Win %']}}%</td>
+						</tr>
+					</table>
+				</div>
 		</div>
 	</div>
 {% endblock %}

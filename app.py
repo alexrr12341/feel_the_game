@@ -17,8 +17,18 @@ def procesar_fortnite():
     datos=request.form
     plat=datos['plataforma']
     jugador=datos['cuenta']
-    datosf=estadisticas_fortnite(plat,jugador)
-    return render_template('fortnite.html',datosf=datosf)
+    datosf=estadisticas_fortnite(plat,jugador)    
+    return render_template('fortnite.html',datosf=datosf,jugador=jugador)
+@app.route('/leagueoflegends',methods=['POST'])
+def procesar_lol():
+    datos=request.form
+    invocador=datos['invocador']
+    region=datos['region']
+    base=estadisticas_base(region,invocador)
+    liga=obtener_ligas(region,invocador)
+    maestrias=obtener_maestrias(region,invocador)
+    historial=obtener_historial(region,invocador)
+    return render_template('leagueoflegends.html',base=base,invocador=invocador,liga=liga,maestrias=maestrias,historial=historial)
 @app.route('/esports',methods=['POST','GET'])
 def esports():
     return render_template('esports.html')

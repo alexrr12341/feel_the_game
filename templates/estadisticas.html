@@ -12,7 +12,7 @@
                 		<option value="psn">PlayStation</option>
                 		<option value="xbl">XBox</option>
         		</select>
-			<input type="submit" value="Enviar!" />
+			<input type="submit" value="Enviar" />
 			</form>
 		</div>
 	</div>
@@ -22,7 +22,24 @@
 	<div class="campeones_gratis">
 		<h1>Estadísticas League of Legends</h1>
 		<div>
-			
+			<form action="/leagueoflegends" method="post">
+			<p>
+			Invocador: <input type="text" name="invocador" autofocus required/>
+			<select name="region">
+                		<option value="euw1">EUW</option>
+                		<option value="eun1">EUNE</option>
+                		<option value="br1">BR</option>
+				<option value="jp1">JP</option>
+                		<option value="kr">KR</option>
+                		<option value="la1">LAN</option>
+				<option value="la2">LAS</option>
+                		<option value="na1">NA</option>
+                		<option value="oc1">OCE</option>
+				<option value="tr1">TR</option>
+                		<option value="ru">RU</option>
+        		</select>
+			<input type="submit" value="Enviar" />
+			</form>
 		</div>
 	</div>
 {% endblock %}

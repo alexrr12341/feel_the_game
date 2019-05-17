@@ -3,6 +3,7 @@ import os
 import json
 import codecs
 doc=json.load(codecs.open('CampeonesInfo.json', 'r', 'utf-8-sig'))
+doc2=json.load(codecs.open('Summoners.json', 'r', 'utf-8-sig'))
 key=os.environ["keylol"]
 parametros={'api_key':key,'locale':'es_ES'}
 def obtener_urlbase(region):
@@ -106,7 +107,7 @@ def obtener_historial(region,invocador):
         y=requests.get(URL_BASE+'match/v4/matchlists/by-account/%s'%aid,params=parametros)
         datos4=y.json()
         listahistorialid=[]
-        contadorh=1
+        contadorh=0
         if y.status_code==200:
                 for historial in datos4['matches']:
                         listahistorialid.append(historial['gameId'])
@@ -140,24 +141,27 @@ def obtener_historial(region,invocador):
                                 idpar=informacion['participantId']
                                 campeon=informacion['championId']
                                 campeon2=str(campeon)
-                                kills=informacion['stats']['kills']
-                                deaths=informacion['stats']['deaths']
-                                assists=informacion['stats']['assists']
-                                kda='%s/%s/%s'%(kills,deaths,assists)
-                                dicchistorial['Nombre%i'%contadord]=diccnombres[idpar]
-                                dicchistorial['Nivel%i'%contadord]=informacion['stats']['champLevel']
-                                dicchistorial['Campeon%i'%contadord]=diccampeon[campeon2]
-                                dicchistorial['KDA%i'%contadord]=kda
-                                dicchistorial['Daño%i'%contadord]=informacion['stats']['totalDamageDealt']
-                                dicchistorial['Vision%i'%contadord]=informacion['stats']['visionScore']
-                                dicchistorial['Oro%i'%contadord]=informacion['stats']['goldEarned']
-                                dicchistorial['Torretas%i'%contadord]=informacion['stats']['turretKills']
-                                dicchistorial['Inhibidor%i'%contadord]=informacion['stats']['inhibitorKills']
-                                dicchistorial['Victoria%i'%contadord]=informacion['stats']['win']
-                                contadord+=1
-                                if contadord>10:
-                                        contadord-=9
-                        listahistorial.append(dicchistorial.copy())
+                                if diccnombres[idpar]==invocador:
+                                        kills=informacion['stats']['kills']
+                                        deaths=informacion['stats']['deaths']
+                                        assists=informacion['stats']['assists']
+                                        kda='%s/%s/%s'%(kills,deaths,assists)
+                                        dicchistorial['Nombre']=diccnombres[idpar]
+                                        dicchistorial['Nivel']=informacion['stats']['champLevel']
+                                        dicchistorial['Campeon']=diccampeon[campeon2]
+                                        dicchistorial['KDA']=kda
+                                        dicchistorial['Item0']=informacion['stats']['item0']
+                                        dicchistorial['Item1']=informacion['stats']['item1']
+                                        dicchistorial['Item2']=informacion['stats']['item2']
+                                        dicchistorial['Item3']=informacion['stats']['item3']
+                                        dicchistorial['Item4']=informacion['stats']['item4']
+                                        dicchistorial['Item5']=informacion['stats']['item5']
+                                        dicchistorial['Item6']=informacion['stats']['item6']
+                                        dicchistorial['Daño']=informacion['stats']['totalDamageDealt']
+                                        dicchistorial['Vision']=informacion['stats']['visionScore']
+                                        dicchistorial['Oro']=informacion['stats']['goldEarned']
+                                        dicchistorial['Victoria']=informacion['stats']['win']
+                                        listahistorial.append(dicchistorial.copy())
                 else:
                         print('Error en la Api')
         return listahistorial

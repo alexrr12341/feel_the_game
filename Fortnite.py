@@ -45,6 +45,3 @@ def estadisticas_fortnite(plat,jugador):
 #1 = Squad
 #2 = Duo
 #3 = Solo
-plat='pc'
-jugador='Alexrr12341'
-print(estadisticas_fortnite(plat,jugador)[1])

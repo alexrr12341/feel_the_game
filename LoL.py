@@ -7,11 +7,8 @@ def obtener_urlbase(region):
         return URL_BASE
 doc=json.load(codecs.open('CampeonesInfo.json', 'r', 'utf-8-sig'))
 key=os.environ["keylol"]
-region=str(input("¿Cual es tu region? (euw,na...) "))
 URL_BASE='https://%s.api.riotgames.com/lol/'%region
 parametros={'api_key':key,'locale':'es_ES'}
-invocador=str(input("¿Cual es el nombre de invocador? "))
-
 def obtener_id(region,invocador):
         URL_BASE=obtener_urlbase(region)
         r=requests.get(URL_BASE+'summoner/v4/summoners/by-name/'+'%s'%invocador,params=parametros)

@@ -1,0 +1,29 @@
+<!doctype html>
+{% extends "base.html" %}
+{% block metaslol %}
+	<div class="campeones_gratis">
+		<h1>Metas y Objetivos Fortnite</h1>
+		<br/>
+		<div>
+			{% if resultadoligas<=0 %}
+				<p>Liga: Ya conesguistes esa liga!!
+			{% else %}
+				<p>Liga: Aun te faltan {{resultadoligas}} liga/s por avanzar
+			{% endif %}
+			{% if resultadonivel<0 %}
+				<p>Nivel: Ya conesguistes ese nivel!!
+			{% else %}
+				<p>Nivel: Aun te faltan {{resultadonivel}} niveles
+			{% endif %}
+			{% if resultadovictorias<0 %}
+				<p>Victorias: Ya conesguistes esas victorias de ranked!!
+			{% else %}
+				<p>Victorias: Aun te faltan {{resultadovictorias}} victorias de ranked
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}
+	<script src="../static/js/jquery.min.js"></script>
+	<script src="../static/js/slick.min.js"></script>
+	<script src="../static/js/main.js"></script>
+</html>

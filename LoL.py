@@ -168,3 +168,23 @@ def obtener_historial(region,invocador):
                 else:
                         abort(404)
         return listahistorial
+def dar_numero_liga(liga):
+        if liga=='IRON':
+                numero=1
+        elif liga=='BRONZE':
+                numero=2
+        elif liga=='SILVER':
+                numero=3
+        elif liga=='GOLD':
+                numero=4
+        elif liga=='PLATINUM':
+                numero=5
+        elif liga=='DIAMOND':
+                numero=6
+        elif liga=='MASTER':
+                numero=7
+        elif liga=='GRANDMASTER':
+                numero=8
+        elif liga=='CHALLENGER':
+                numero=9
+        return numero

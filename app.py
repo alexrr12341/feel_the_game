@@ -3,6 +3,7 @@ from urllib.parse import parse_qs
 import os
 from Fortnite import *
 from LoL import *
+from eSport import *
 app = Flask(__name__)
 @app.route('/',methods=['POST','GET'])
 def inicio():
@@ -26,9 +27,8 @@ def procesar_lol():
     region=datos['region']
     base=estadisticas_base(region,invocador)
     liga=obtener_ligas(region,invocador)
-    liga2=str
     try:
-        #Esto es la mayor tonteria que he hecho en programación.
+        #Esto es la mayor tonteria que he hecho en programación(es por si un jugador no tiene liga, que suele pasar).
         if liga['Liga']==None:
             liga2=liga['Liga']+'UNRANKED'
         else:
@@ -49,10 +49,32 @@ def procesar_metas_fortnite():
     resultadopartidas=int(datos['partidas2'])-int(datosf[0]['Matches Played'])
     resultadopuntuacion=float(datos['puntuacion2'])-float(datosf[0]['Score'].replace(",","."))
     return render_template('metasfortnite.html',resultadokills=resultadokills,resultadovictorias=resultadovictorias,resultadopartidas=resultadopartidas,resultadopuntuacion=resultadopuntuacion)
-
+@app.route('/metas/leagueoflegends',methods=['POST'])
+def procesar_metas_lol():
+    datos=request.form
+    invocador=datos['invocador']
+    region=datos['region']
+    liga=datos['liga']
+    nivel=datos['nivel']
+    victorias=datos['victorias']
+    liganum=dar_numero_liga(liga)
+    datosl=obtener_ligas(region,invocador)
+    liga2=datosl['Liga']
+    liganum2=dar_numero_liga(liga2)
+    victorias2=datosl['Victorias']
+    datosl2=estadisticas_base(region,invocador)
+    nivel2=datosl2['Nivel']
+    resultadonivel=int(nivel)-int(nivel2)
+    resultadovictorias=int(victorias)-int(victorias2)
+    resultadoligas=int(liganum)-int(liganum2)
+    return render_template('metaslol.html',resultadonivel=resultadonivel,resultadovictorias=resultadovictorias,resultadoligas=resultadoligas)
 @app.route('/esports',methods=['POST','GET'])
 def esports():
-    return render_template('esports.html')
+    torneo=sacar_torneo()
+    enfrentamientos=conseguir_enfrentamientos()
+    stream=obtener_enfrentamientos_lives()
+    enfrentamientos_live=obtener_match_lives()
+    return render_template('esports.html',torneo=torneo,enfrentamientos=enfrentamientos,stream=stream,enfrentamientos_live=enfrentamientos_live)
 @app.route('/guias',methods=['POST','GET'])
 def guias():
     return render_template('guias.html')

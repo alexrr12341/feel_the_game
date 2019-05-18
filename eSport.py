@@ -31,14 +31,19 @@ def conseguir_enfrentamientos():
                                 id2=str(id)
                                 diccequipos[id2]=equipos['name']
                         for partidas in torneos['matches']:
-                                Ganador=partidas['winner_id']
-                                Ganador2=str(Ganador)
-                                diccequiposT['Empieza']=partidas['begin_at']
-                                diccequiposT['Termina']=partidas['end_at']
-                                diccequiposT['Tipo']=partidas['match_type']
-                                diccequiposT['Enfrentamiento']=partidas['name']
-                                diccequiposT['Ganador']=diccequipos[Ganador2]
-                                listaequipos.append(diccequiposT.copy())
+                                try:
+                                        #Esto lo hago por si la aplicación detecta que no hay ganador, y salta errores, ya que solo se basa en los recientes
+                                        Ganador=partidas['winner_id']
+                                        Ganador2=str(Ganador)
+                                        diccequiposT['Empieza']=partidas['begin_at']
+                                        diccequiposT['Termina']=partidas['end_at']
+                                        diccequiposT['Tipo']=partidas['match_type']
+                                        diccequiposT['Enfrentamiento']=partidas['name']
+                                        diccequiposT['Ganador']=diccequipos[Ganador2]
+                                        print(diccequiposT)
+                                        listaequipos.append(diccequiposT.copy())
+                                except:
+                                        ''
                 return listaequipos
         else:
                 abort(404)
@@ -78,5 +83,6 @@ def obtener_match_lives():
                 return listamatch
         else:
                 abort(404)
+print(obtener_match_lives())
 #league-of-legends
 

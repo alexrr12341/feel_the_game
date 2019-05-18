@@ -5,6 +5,7 @@ from Fortnite import *
 from LoL import *
 from eSport import *
 app = Flask(__name__)
+port=os.environ["PORT"]
 @app.route('/',methods=['POST','GET'])
 def inicio():
     listat=tienda_fortnite()
@@ -81,4 +82,4 @@ def guias():
 @app.route('/metas',methods=['POST','GET'])
 def metas():
     return render_template('metas.html')
-app.run(debug=True)
+app.run('0.0.0.0',int(port), debug=True)

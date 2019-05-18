@@ -83,6 +83,5 @@ def obtener_match_lives():
                 return listamatch
         else:
                 abort(404)
-print(obtener_match_lives())
 #league-of-legends
 

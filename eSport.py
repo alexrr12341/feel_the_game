@@ -1,5 +1,6 @@
 import os
 import requests
+from flask import abort
 key=os.environ['keypanda']
 parametros={'token':key}
 URL_BASE='https://api.pandascore.co'
@@ -16,7 +17,7 @@ def sacar_torneo():
                         dicctorneo['Imagen']=imagen
                 return dicctorneo
         else:
-                print('Error de Api')
+                abort(404)
 def conseguir_enfrentamientos():
         r=requests.get(URL_BASE+'//lol/tournaments/running',params=parametros)
         datos=r.json()
@@ -40,7 +41,7 @@ def conseguir_enfrentamientos():
                                 listaequipos.append(diccequiposT.copy())
                 return listaequipos
         else:
-                print('Error de Api')
+                abort(404)
 def obtener_enfrentamientos_lives():
         t=requests.get(URL_BASE+'//lives',params=parametros)
         datos2=t.json()
@@ -56,7 +57,7 @@ def obtener_enfrentamientos_lives():
                                 listalol.append(dicclol.copy())
                 return listalol
         else:
-                print('Error de Api')
+                abort(404)
 def obtener_match_lives():
         t=requests.get(URL_BASE+'//lives',params=parametros)
         datos2=t.json()
@@ -76,6 +77,6 @@ def obtener_match_lives():
                                         listamatch.append(diccmatch.copy())
                 return listamatch
         else:
-                print('Error de Api')
+                abort(404)
 #league-of-legends
 

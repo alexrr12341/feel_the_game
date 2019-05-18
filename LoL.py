@@ -2,6 +2,7 @@ import requests
 import os
 import json
 import codecs
+from flask import abort
 doc=json.load(codecs.open('CampeonesInfo.json', 'r', 'utf-8-sig'))
 doc2=json.load(codecs.open('Summoners.json', 'r', 'utf-8-sig'))
 key=os.environ["keylol"]
@@ -25,7 +26,9 @@ def obtener_rotacion():
                 for ids in datos['freeChampionIds']:
                         ids2=str(ids)
                         listacampeones2.append(diccampeon[ids2])
-                return listacampeones2
+                return listacampeones2    
+        else:
+                abort(404)          
 def obtener_id(region,invocador):
         URL_BASE=obtener_urlbase(region)
         r=requests.get(URL_BASE+'summoner/v4/summoners/by-name/'+'%s'%invocador,params=parametros)
@@ -33,7 +36,7 @@ def obtener_id(region,invocador):
         if r.status_code==200:
                 id=datos['id']
         else:
-                print('Error en la Api')
+                abort(404)
         return id
 def obtener_aid(region,invocador):
         URL_BASE=obtener_urlbase(region)
@@ -42,7 +45,7 @@ def obtener_aid(region,invocador):
         if r.status_code==200:
                 aid=datos['accountId']
         else:
-                print('Error en la Api')
+                abort(404)
         return aid
 def estadisticas_base(region,invocador):
         URL_BASE=obtener_urlbase(region)
@@ -55,7 +58,7 @@ def estadisticas_base(region,invocador):
                 diccbase['Icono']=datos['profileIconId']
                 return diccbase
         else:
-                print('Error en la Api')
+                abort(404)
 def obtener_ligas(region,invocador):
         URL_BASE=obtener_urlbase(region)
         id=obtener_id(region,invocador)
@@ -70,7 +73,7 @@ def obtener_ligas(region,invocador):
                         diccligas['Derrotas']=info['losses']
                         return diccligas
         else:
-                print('Error en la Api')
+                abort(404)
 def obtener_maestrias(region,invocador):
         URL_BASE=obtener_urlbase(region)
         id=obtener_id(region,invocador)
@@ -100,7 +103,7 @@ def obtener_maestrias(region,invocador):
                         
                 return listamaestrias
         else:
-                print('Error en la Api')
+                abort(404)
 def obtener_historial(region,invocador):
         URL_BASE=obtener_urlbase(region)
         aid=obtener_aid(region,invocador)
@@ -115,7 +118,7 @@ def obtener_historial(region,invocador):
                         if contadorh>=5:
                                 break
         else:
-                print('Error en la Api')
+                abort(404)
         listakda=[]
         contadorkda=0
         diccnombres={}
@@ -163,5 +166,5 @@ def obtener_historial(region,invocador):
                                         dicchistorial['Victoria']=informacion['stats']['win']
                                         listahistorial.append(dicchistorial.copy())
                 else:
-                        print('Error en la Api')
+                        abort(404)
         return listahistorial

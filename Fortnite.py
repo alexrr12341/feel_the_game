@@ -11,12 +11,13 @@ def tienda_fortnite():
         tiendaf={}
         listaf=[]
         for tienda in datos2:
-            tiendaf['Nombre']=tienda['name'] 
-            tiendaf['Rareza']=tienda['rarity']
-            tiendaf['VBucks']=tienda['vBucks']
-            tiendaf['Tipo']=tienda['storeCategory']
-            tiendaf['Imagen']=tienda['imageUrl']
-            listaf.append(tiendaf.copy())
+            if tienda['storeCategory']=='BRWeeklyStorefront':
+                tiendaf['Nombre']=tienda['name'] 
+                tiendaf['Rareza']=tienda['rarity']
+                tiendaf['VBucks']=tienda['vBucks']
+                tiendaf['Tipo']=tienda['storeCategory']
+                tiendaf['Imagen']=tienda['imageUrl']
+                listaf.append(tiendaf.copy())
         return listaf
     else:
         abort(404)

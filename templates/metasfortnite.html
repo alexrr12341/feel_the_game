@@ -1,0 +1,34 @@
+<!doctype html>
+{% extends "base.html" %}
+{% block metasfortnite %}
+	<div class="campeones_gratis">
+		<h1>Metas y Objetivos Fortnite</h1>
+		<br/>
+		<div>
+			{% if resultadokills<0 %}
+				<p>Ya tienes esas kills!!
+			{% else %}
+				<p>Aun te faltan {{resultadokills}} Kills
+			{% endif %}
+			{% if resultadovictorias<0 %}
+				<p>Ya tienes esas victorias!!
+			{% else %}
+				<p>Aun te faltan {{resultadovictorias}} Victorias
+			{% endif %}
+			{% if resultadopartidas<0 %}
+				<p>Ya tienes esas partidas jugadas!!
+			{% else %}
+				<p>Aun te faltan {{resultadopartidas}} partidas jugadas
+			{% endif %}
+			{% if resultadopartidas<0 %}
+				<p>Ya tienes esa puntuación!!
+			{% else %}
+				<p>Aun te faltan {{resultadopuntuacion}} de puntuación
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}
+	<script src="../static/js/jquery.min.js"></script>
+	<script src="../static/js/slick.min.js"></script>
+	<script src="../static/js/main.js"></script>
+</html>

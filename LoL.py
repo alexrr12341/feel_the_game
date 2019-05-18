@@ -101,9 +101,9 @@ def obtener_maestrias(region,invocador):
                         if contador>=5:
                                 break
                         
-                return listamaestrias
-        else:
-                abort(404)
+                return listamaestrias  
+        #No hago abort 404 ya que sino tienes maestrias podrás buscar tu información basica igual.
+
 def obtener_historial(region,invocador):
         URL_BASE=obtener_urlbase(region)
         aid=obtener_aid(region,invocador)
@@ -117,8 +117,8 @@ def obtener_historial(region,invocador):
                         contadorh+=1
                         if contadorh>=5:
                                 break
-        else:
-                abort(404)
+        #No hago abort 404 ya que sino tienes historial podrás buscar tu información basica igual.
+
         listakda=[]
         contadorkda=0
         diccnombres={}

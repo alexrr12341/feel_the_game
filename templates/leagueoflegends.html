@@ -10,14 +10,20 @@
 			Nivel: {{base['Nivel']}}
 			<br/>
 			<br/>
-			<img src="../static/images/Emblem_{{liga['Liga']}}.png" width="50" height="50"/>
-			Liga: {{liga['Liga']}}
-			<br/>
-			Rango: {{liga['Rango']}}
-			<br/>
-			Victorias: {{liga['Victorias']}}
-			<br/>
-			Derrotas: {{liga['Derrotas']}}
+			{% if liga2=="UNRANKED" %}
+				<img src="../static/images/Emblem_{{liga2}}.png" width="50" height="50"/>
+				Liga: {{liga2}}
+			{% else %}
+				<img src="../static/images/Emblem_{{liga2}}.png" width="50" height="50"/>
+				Liga: {{liga2}}
+				<br/>
+				Rango: {{liga['Rango']}}
+				<br/>
+				Victorias: {{liga['Victorias']}}
+				<br/>
+				Derrotas: {{liga['Derrotas']}}
+			{% endif %}	
+				
 			<br/>
 			<br/>
 			<table>

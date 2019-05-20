@@ -10,6 +10,4 @@
 
 #### 3-En la tercera sección tendremos la sección de eSports, donde se nos mostrará la información mas reciente sobre los eSports.
 
-#### 4-En la cuarta sección estará la sección de guias, donde buscaremos guias de videojuegos mediante el uso de Youtube.
-
-#### 5-En la quinta sección tendremos la sección del formulario, donde usaremos un formulario para ver las estadisticas que piensas tener en el futuro y la página detectará cuanto te queda para conseguirlo
+#### 4-En la cuarta sección tendremos la sección del formulario, donde usaremos un formulario para ver las estadisticas que piensas tener en el futuro y la página detectará cuanto te queda para conseguirlo

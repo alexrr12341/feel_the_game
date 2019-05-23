@@ -540,18 +540,18 @@ input[type=submit]:hover {
 	padding: 20px 0 20px 0;
 }
 
-.estadisticas_lolfort{
+.estadisticas_lolforti{
 	margin: 100px 0 100px 0;
 	border: 1px solid #2279CF;
 	padding-bottom: 20px;
 	background-image: url("../static/images/fortnite5.jpg");
 	background-image: url('../static/images/leagueoflegends3.jpg')
 	opacity: 0.7;  
-	height: 1100px;  
+	height: 300px;  
 }
 
 
-.estadisticas_lolfort div div{
+.estadisticas_lolforti div div{
 	width: 20%;
 	float: left;
 	padding: 20px 0 20px 0;
@@ -563,77 +563,7 @@ input[type=submit]:hover {
 	height: 50px !important;
 }
 
-/* historial */
 
-.historial_invocador {
-	margin-bottom: 50px;
-	border: 1px solid #2279CF;
-	padding-bottom: 20px;
-	background: black;
-	opacity: 0.7;
-	width: 750px;
-	margin-left: 5%;
-}
-
-.historial_invocador div{
-	height: 230px; 
-}
-
-.historial_invocador div div{
-	width: 120px;
-	float: left;
-	height: 180px;
-}
-
-.partida_victoria{
-	border: 2px solid Green;
-	margin: 20px;
-}
-
-.partida_victoria h3{
-	color: Green;
-	text-align: center;
-	font-size: 26px;
-	font-weight: bold;
-}
-
-.partida_derrota{
-	border: 2px solid Red;
-	margin: 20px;
-}
-
-.partida_derrota h3{
-	color: Red;
-	text-align: center;
-	font-size: 26px;
-	font-weight: bold;
-}
-
-.botones{
-	height: 50px !important;
-}
-
-.botones a{
-	margin: 0 10px 0 10px;
-	background-color: #2279CF;
-	color: black;
-	text-align: center;
-	box-shadow: 0px 0px 2px 5px #FC5252;
-	font-weight: bold;
-}
-
-.botones a:hover {
-	background-color: #FC5252;
-}
-
-.objetos{
-	width: 400px !important;
-}
-
-.navbar-inverse .navbar-nav > .active2 > a {
-	background: Grey;
-	color: #691818 !important;
-}
 
 .twittear {
 	margin: -50px 0 50px 10%;

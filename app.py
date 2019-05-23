@@ -79,4 +79,4 @@ def esports():
 @app.route('/metas',methods=['POST','GET'])
 def metas():
     return render_template('metas.html')
-app.run(debug=True)
+app.run('0.0.0.0',int(port), debug=True)

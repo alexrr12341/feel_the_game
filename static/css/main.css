@@ -516,7 +516,42 @@ input[type=submit]:hover {
 	height: 1100px;  
 }
 
+
 .campeones_gratis div div{
+	width: 20%;
+	float: left;
+	padding: 20px 0 20px 0;
+}
+
+.campeones_rotacion{
+	margin: 100px 0 100px 0;
+	border: 1px solid #2279CF;
+	padding-bottom: 20px;
+	background-image: url("../static/images/327279.jpg");
+	background-image: url('../static/images/fortnite4.jpg')
+	opacity: 0.7;  
+	height: 1100px;  
+}
+
+
+.campeones_rotacion div div{
+	width: 20%;
+	float: left;
+	padding: 20px 0 20px 0;
+}
+
+.estadisticas_lolfort{
+	margin: 100px 0 100px 0;
+	border: 1px solid #2279CF;
+	padding-bottom: 20px;
+	background-image: url("../static/images/fortnite5.jpg");
+	background-image: url('../static/images/leagueoflegends3.jpg')
+	opacity: 0.7;  
+	height: 1100px;  
+}
+
+
+.estadisticas_lolfort div div{
 	width: 20%;
 	float: left;
 	padding: 20px 0 20px 0;

@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block contenido1 %}
-	<div class="campeones_gratis">
+	<div class="campeones_gratis" style="background-image: url('../static/images/fortnite4.jpg')">
 		<h1>Tienda Fortnite</h1>
 		<div>
 	{% for datos in listat -%}
-		<div>
+		<div class="marco1">
 			<img src="{{datos['Imagen']}}" width="170" height="210"/>
-			<h4 class="single-book__title">{{datos['Nombre']}}</h4>
-			<h4 class="single-book__title">{{datos['VBucks']}} paVos</h4>
+			<h3 class="single-book__title" style="color:yellow;"><b>{{datos['Nombre']}}</b></h3>
+			<h3 class="single-book__title" style="color:yellow;"><b>{{datos['VBucks']}} paVos</b></h3>
 		</div>
 	{% endfor %}
 		</div>
@@ -15,7 +15,7 @@
 {% endblock %}
 
 {% block contenido2 %}
-	<div class="campeones_gratis">
+	<div class="campeones_rotacion" style="background-image: url('../static/images/shadow_isles_1920x1080.jpg')">
 		<h1>Rotación Gratuita LoL</h1>
 		<div>
 	{% for datos in listal -%}

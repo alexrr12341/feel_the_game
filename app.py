@@ -76,10 +76,7 @@ def esports():
     stream=obtener_enfrentamientos_lives()
     enfrentamientos_live=obtener_match_lives()
     return render_template('esports.html',torneo=torneo,enfrentamientos=enfrentamientos,stream=stream,enfrentamientos_live=enfrentamientos_live)
-@app.route('/guias',methods=['POST','GET'])
-def guias():
-    return render_template('guias.html')
 @app.route('/metas',methods=['POST','GET'])
 def metas():
     return render_template('metas.html')
-app.run('0.0.0.0',int(port), debug=True)
+app.run(debug=True)

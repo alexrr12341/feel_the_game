@@ -1,14 +1,15 @@
 <!doctype html>
 {% extends "base.html" %}
 {% block esports %}
-	<div class="campeones_gratis">
+	<div class="campeones_gratis" style="background-image: url('../static/images/esport1.jpg')">
+		<h1 style="color:yellow;">Torneos eSports</h1>
 		<div>
 			<br/>
 			<h2>{{torneo['Nombre']}}</h2>
 			<img src="{{torneo['Imagen']}}" width="150"/>
 			<br/>
 			{% for matches in enfrentamientos %}
-				<div>
+				<div class="marco1">
 					Enfrentamiento: {{matches['Enfrentamiento']}}
 					<br/>
 					Ganador: {{matches['Ganador']}}
@@ -22,8 +23,8 @@
 
 {% block esportslive %}
 	<div class="campeones_gratis">
-		<h1>eSports en Vivo</h1>
-		<div>
+		<h1 style="color:yellow;">Torneos eSports en Vivo</h1>
+		<div class="marco1">
 			<br/>
 				{% for lives in enfrentamientos_live %}
 					Nombre Torneo: {{lives['Nombre']}}

@@ -6,6 +6,21 @@ parametros={'token':key}
 URL_BASE='https://api.pandascore.co'
 diccequipos={}
 dicctorneo={}
+diccligas={}
+listaligas=[]
+def sacar_liga():
+        r=requests.get(URL_BASE+'//lol/series/running',params=parametros)
+        datos=r.json()
+        if r.status_code==200:
+                for ligas in datos:
+                        liga=ligas['league']['name']
+                        imagen=ligas['league']['image_url']
+                        diccligas['Nombre']=liga
+                        diccligas['Imagen']=imagen
+                        listaligas.append(diccligas.copy())
+                return listaligas
+        else:
+                abort(404)
 def sacar_torneo():
         r=requests.get(URL_BASE+'//lol/tournaments/running',params=parametros)
         datos=r.json()

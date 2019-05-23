@@ -1,29 +1,29 @@
 <!doctype html>
 {% extends "base.html" %}
 {% block metasfortnite %}
-	<div class="campeones_gratis">
-		<h1>Metas y Objetivos Fortnite</h1>
-		<h4>*Tienes que decir tu objetivo, el programa te dirá cuanto te queda*</h4>
+	<div class="campeones_gratis" style="background-image: url('../static/images/fortnite6.jpg')">
+		<h1 style="color:black;">Metas y Objetivos Fortnite</h1>
+		<h4 style="color:yellow;">*Tienes que decir tu objetivo, el programa te dirá cuanto te queda*</h4>
 		<br/>
 		<div>
 			<form action="/metas/fortnite" method="post">
-			<p>
+			<p style="color:yellow;">
 			Cuenta: <input type="text" name="cuenta" autofocus required/>
 			<select name="plataforma">
                 		<option value="pc">Pc</option>
                 		<option value="psn">PlayStation</option>
                 		<option value="xbl">XBox</option>
         		</select>
-			<p>
+			<p style="color:yellow;">
 			Kills: <input type="number" name="kills2" autofocus required/>
 			</p>
-			<p>
+			<p style="color:yellow;">
 			Victorias: <input type="number" name="victorias2" autofocus required/>
 			</p>
-			<p>
+			<p style="color:yellow;">
 			Partidas: <input type="number" name="partidas2" autofocus required/>
 			</p>
-			<p>
+			<p style="color:yellow;">
 			Puntuación: <input type="number" name="puntuacion2" autofocus required/>
 			</p>
 			<input type="submit" value="Enviar" />
@@ -32,13 +32,13 @@
 	</div>
 {% endblock %}
 {% block metaslol %}
-	<div class="campeones_gratis">
-		<h1>Metas y Objetivos LeagueOfLegends</h1>
-		<h4>*Tienes que decir tu objetivo, el programa te dirá cuanto te queda*</h4>
+	<div class="campeones_gratis" style="background-image: url('../static/images/leagueoflegends3.jpg')">
+		<h1 style="color:black;">Metas y Objetivos LeagueOfLegends</h1>
+		<h4 style="color:yellow;">*Tienes que decir tu objetivo, el programa te dirá cuanto te queda*</h4>
 		<br/>
 		<div>
 			<form action="/metas/leagueoflegends" method="post">
-			<p>
+			<p style="color:yellow;">
 			Invocador: <input type="text" name="invocador" autofocus required/>
 			<select name="region">
                 		<option value="euw1">EUW</option>
@@ -53,7 +53,7 @@
 				<option value="tr1">TR</option>
                 		<option value="ru">RU</option>
         		</select>
-			<p>
+			<p style="color:yellow;">
 			Liga:
 			<select name="liga">
 				<option value="IRON">Hierro</option>
@@ -66,9 +66,9 @@
 				<option value="GRANDMASTER">Gran Maestro</option>
 				<option value="CHALLENGER">Challenger</option>
 			</select>
-			<p>
+			<p style="color:yellow;">
 			Nivel de Invocador: <input type="number" name="nivel" autofocus required/>
-			<p>
+			<p style="color:yellow;">
 			Victorias Rankeds: <input type="number" name="victorias" autofocus required/>
 			<input type="submit" value="Enviar" />
 			</form>

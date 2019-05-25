@@ -113,10 +113,10 @@ def twitter():
 
 @app.route('/callback')
 def callback():
-	request_token=session["request_token"]
-	verifier  = request.args.get("oauth_verifier")
-	access_token,access_token_secret= get_access_token_oauth1(request_token,verifier)
-	session["access_token"]= access_token.decode("utf-8")
-	session["access_token_secret"]= access_token_secret.decode("utf-8")
-return redirect('/twittear')
+    request_token=session["request_token"]
+    verifier  = request.args.get("oauth_verifier")
+    access_token,access_token_secret= get_access_token_oauth1(request_token,verifier)
+    session["access_token"]= access_token.decode("utf-8")
+    session["access_token_secret"]= access_token_secret.decode("utf-8")
+    return redirect('/twittear')
 app.run('0.0.0.0',int(port), debug=True)

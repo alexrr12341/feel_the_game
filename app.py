@@ -4,6 +4,7 @@ import os
 from Fortnite import *
 from LoL import *
 from eSport import *
+from requests_oauthlib import OAuth1
 app = Flask(__name__)
 port=os.environ["PORT"]
 @app.route('/',methods=['POST','GET'])
@@ -79,6 +80,13 @@ def esports():
 @app.route('/metas',methods=['POST','GET'])
 def metas():
     return render_template('metas.html')
+##PARTE TWITTER
+REQUEST_TOKEN_URL = "https://api.twitter.com/oauth/request_token"
+AUTHENTICATE_URL = "https://api.twitter.com/oauth/authenticate?oauth_token="
+ACCESS_TOKEN_URL = "https://api.twitter.com/oauth/access_token"
+UPDATE_URL = 'https://api.twitter.com/1.1/statuses/update.json'
+CONSUMER_KEY = os.environ['CONSUMER_KEY']
+CONSUMER_SECRET = os.environ['CONSUMER_SECRET']
 def get_request_token_oauth1():
     oauth = OAuth1(os.environ["CONSUMER_KEY"],
                   client_secret=os.environ["CONSUMER_SECRET"])

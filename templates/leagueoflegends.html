@@ -1,27 +1,37 @@
 <!doctype html>
 {% extends "base.html" %}
 {% block lol %}
-	<div class="campeones_gratis" style="background-image: url('../static/images/leagueoflegends4.jpg')">
+	<div class="campeones_gratis" style="background-image: url('../static/images/leagueoflegends6.jpg')">
 		<h1>Estadísticas League of Legends</h1>
 		<div>
 			<img src="http://ddragon.leagueoflegends.com/cdn/9.9.1/img/profileicon/{{base['Icono']}}.png" alt="http://ddragon.leagueoflegends.com/cdn/9.9.1/img/profileicon/{{base['Icono']}}.png" width="50" height="50"/>
+			<p style="color:orange;">
 			Invocador: {{base['Nombre']}}
-			<br/>
+			</p>
+			<p style="color:orange;">
 			Nivel: {{base['Nivel']}}
+			</p>
 			<br/>
 			<br/>
 			{% if liga2=="UNRANKED" %}
 				<img src="../static/images/Emblem_{{liga2}}.png" alt="../static/images/Emblem_{{liga2}}.png" width="50" height="50"/>
+				<p style="color:orange;">
 				Liga: {{liga2}}
+				</p>
 			{% else %}
 				<img src="../static/images/Emblem_{{liga2}}.png" alt="../static/images/Emblem_{{liga2}}.png" width="50" height="50"/>
+				<p style="color:orange;">
 				Liga: {{liga2}}
-				<br/>
+				</p>
+				<p style="color:orange;">
 				Rango: {{liga['Rango']}}
-				<br/>
+				</p>
+				<p style="color:orange;">
 				Victorias: {{liga['Victorias']}}
-				<br/>
+				</p>
+				<p style="color:orange;">
 				Derrotas: {{liga['Derrotas']}}
+				</p>
 			{% endif %}	
 				
 			<br/>
@@ -40,7 +50,7 @@
 				
 			</table>
 		</div>
-		<h1 font color="blue">Historial League of Legends</h1>
+		<h1 style="color:yellow;">Historial League of Legends</h1>
 		<div>
 			<table>
 				<thead>

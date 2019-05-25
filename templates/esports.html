@@ -9,12 +9,16 @@
 			<img src="{{torneo['Imagen']}}" width="150"/>
 			<br/>
 			{% for matches in enfrentamientos %}
-				<div class="marco1">
+				<div>
+					<p style="color:yellow;">
 					Enfrentamiento: {{matches['Enfrentamiento']}}
-					<br/>
+					</p>
+					<p style="color:yellow;">
 					Ganador: {{matches['Ganador']}}
-					<br/>
+					</p>
+					<p style="color:yellow;">
 					Tipo: {{matches['Tipo']}}
+					</p>
 				</div>
 			{% endfor %}
 		</div>
@@ -22,20 +26,23 @@
 {% endblock %}
 
 {% block esportslive %}
-	<div class="campeones_gratis">
+	<div class="campeones_gratis" style="background-image: url('../static/images/esport2.jpg')">
 		<h1 style="color:yellow;">Torneos eSports en Vivo</h1>
-		<div class="marco1">
+		<div>
 			<br/>
 				{% for lives in enfrentamientos_live %}
+					<p style="color:yellow;">
 					Nombre Torneo: {{lives['Nombre']}}
-					<br/>
+					</p>
+					<p style="color:yellow;">
 					Enfrentamiento: {{lives['NombreMatch']}}
-					<br/>
+					</p>
+					<p style="color:yellow;">
 					Termina: {{lives['Termina']}}
-					<br/>
+					</p>
 				{% endfor %}
 				{% for streamings in stream %}
-					<a href="{{streamings['URLStream']}}">Link Hacia Streaming</a>
+					<a href="{{streamings['URLStream']}}"><p style="color:yellow;">Link Hacia Streaming<p></a>
 				{% endfor %}
 		</div>
 	</div>

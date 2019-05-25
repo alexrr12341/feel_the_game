@@ -444,67 +444,6 @@ input[type=submit]:hover {
 	background-color: #FC5252;
 }
 
-/* INVOCADOR */
-
-.info_invocador{
-	margin: 100px 0 100px 10%;
-	border: 1px solid #2279CF;
-	padding-bottom: 20px;
-	background: black;
-	opacity: 0.7;  
-	height: 250px;
-	width: 750px;
-}
-
-.info_invocador div div{
-	width: 33%;
-	float: left;
-	padding: : 20px 0 20px 0;
-}
-
-.partida_invocador {
-	margin: 0 0 10% 10%;
-	border: 1px solid #2279CF;
-	padding-bottom: 20px;
-	background: black;
-	opacity: 0.7;
-	width: 750px;
-}
-
-.partida_invocador .cabecera_partida{
-	width: 33%;
-	float: left;
-	margin: 20px 0 20px 0;
-	height: 100px;
-}
-
-.partida_invocador div{
-	height: 500px; 
-}
-
-.partida_invocador div div{
-	width: 20%;
-	float: left;
-	margin: 20px 0 20px 0;
-}
-
-.comandos{
-	position: relative;
-	font-family: monospace;
-	font-size: 16px;
-	border: 1px solid #2279CF;
-	height: 150px !important;
-	margin: 20px 10px 20px 10px !important;
-}
-
-.comandos p{
-	position: relative;
-	background: white;
-	margin: 10px 10px 10px 10px !important;
-	color: black !important;
-}
-
-
 /* campeones gratuitos */
 
 .campeones_gratis{
@@ -547,7 +486,7 @@ input[type=submit]:hover {
 	background-image: url("../static/images/fortnite5.jpg");
 	background-image: url('../static/images/leagueoflegends3.jpg')
 	opacity: 0.7;  
-	height: 300px;  
+	height: 200px;  
 }
 
 

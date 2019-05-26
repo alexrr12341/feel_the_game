@@ -124,10 +124,10 @@ if __name__ == '__main__':
     port=os.environ["PORT"]
 @app.route('/twittear')
 def twittear():
-    invocador=datos['invocador']
-    liga=session['liga2']
+    invocador=base['invocador']
+    liga=base['liga2']
     main=session['Campeon']
-    update = '''%s es %s y su main es %s
+    update = '''%s es %s y su rango es %s
 				Mira tus estadísticas en:
 				https://feelthegame.herokuapp.com/'''%(invocador,liga,main)
     post = {"status": update}

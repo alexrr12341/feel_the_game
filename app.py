@@ -111,7 +111,7 @@ def twitter():
 	session["request_token"]=request_token.decode("utf-8")
 	return redirect(authorize_url)
 
-@app.route('/callback')
+@app.route('/twitter_callback')
 def callback():
     request_token=session["request_token"]
     verifier  = request.args.get("oauth_verifier")

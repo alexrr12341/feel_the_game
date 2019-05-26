@@ -110,7 +110,7 @@ def twitter():
     authorize_url=AUTHENTICATE_URL+request_token.decode("utf-8")
     session["request_token"]=request_token.decode("utf-8")
     session["request_token_secret"]=request_token_secret.decode("utf-8")
-    return render_template("twitter.html",authorize_url=authorize_url)
+    return render_template(authorize_url=authorize_url)
 @app.route('/twitter_callback')
 def twitter_callback():
     request_token=session["request_token"]
@@ -124,7 +124,6 @@ if __name__ == '__main__':
     port=os.environ["PORT"]
 @app.route('/twittear')
 def twittear():
-    datos=request.form
     invocador=datos['invocador']
     liga=session['liga2']
     main=session['Campeon']

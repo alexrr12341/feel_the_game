@@ -105,7 +105,6 @@ def get_access_token_oauth1(request_token,request_token_secret,verifier):
     r = requests.post(url=ACCESS_TOKEN_URL, auth=oauth)
     credentials = parse_qs(r.content)
     return credentials.get(b'oauth_token')[0],credentials.get(b'oauth_token_secret')[0]
-
 @app.route('/twitter')
 def twitter():
     request_token,request_token_secret = get_request_token_oauth1()
@@ -113,7 +112,6 @@ def twitter():
     session["request_token"]=request_token.decode("utf-8")
     session["request_token_secret"]=request_token_secret.decode("utf-8")
     return render_template("oauth1.html",authorize_url=authorize_url)
-
 @app.route('/twitter_callback')
 def twitter_callback():
     request_token=session["request_token"]
@@ -122,4 +120,5 @@ def twitter_callback():
     access_token,access_token_secret= get_access_token_oauth1(request_token,request_token_secret,verifier)
     session["access_token"]= access_token.decode("utf-8")
     session["access_token_secret"]= access_token_secret.decode("utf-8")
-return redirect('/vertweet')
+    return redirect('/vertweet')
+app.run('0.0.0.0',int(port), debug=True)

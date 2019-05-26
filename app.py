@@ -124,7 +124,7 @@ if __name__ == '__main__':
     port=os.environ["PORT"]
 @app.route('/twittear')
 def twittear():
-    invocador=session['Nombre']
+    invocador=datos['invocador']
     liga=session['liga2']
     main=session['Campeon']
     update = '''%s es %s y su main es %s

@@ -119,7 +119,24 @@ def twitter_callback():
     access_token,access_token_secret= get_access_token_oauth1(request_token,request_token_secret,verifier)
     session["access_token"]= access_token.decode("utf-8")
     session["access_token_secret"]= access_token_secret.decode("utf-8")
-    return redirect('/vertweet')
+    return redirect('/twittear')
 if __name__ == '__main__':
     port=os.environ["PORT"]
+@app.route('/twittear')
+def twittear():
+    invocador=session['Nombre']
+    liga=session['liga2']
+    main=session['Campeon']
+    update = '''%s es %s y su main es %s
+				Mira tus estadísticas en:
+				https://feelthegame.herokuapp.com/'''%(invocador,liga,main)
+    post = {"status": update}
+    access_token=session["access_token"]
+    access_token_secret=session["access_token_secret"]
+    oauth = OAuth1(CONSUMER_KEY,client_secret=CONSUMER_SECRET,resource_owner_key=access_token,resource_owner_secret=access_token_secret)
+    r=requests.post(UPDATE_URL, data=post, auth=oauth)
+    if r.status_code==200:
+        return redirect("https://twitter.com/#!/%s" % session["screen_name"])
+    else:
+        return redirect('/twitter')
 app.run('0.0.0.0',int(port), debug=True)

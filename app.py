@@ -6,6 +6,7 @@ from LoL import *
 from eSport import *
 from requests_oauthlib import OAuth1
 app = Flask(__name__)
+app.secret_key=str(os.system('openssl rand -base64 24'))
 port=os.environ["PORT"]
 @app.route('/',methods=['POST','GET'])
 def inicio():
@@ -100,18 +101,16 @@ def get_access_token_oauth1(request_token,request_token_secret,verifier):
                    resource_owner_key=request_token,
                    resource_owner_secret=request_token_secret,
                    verifier=verifier,)
-  
-      
     r = requests.post(url=ACCESS_TOKEN_URL, auth=oauth)
     credentials = parse_qs(r.content)
     return credentials.get(b'oauth_token')[0],credentials.get(b'oauth_token_secret')[0]
-@app.route('/twitter')
+@app.route('/twitter',methods=['POST','GET'])
 def twitter():
     request_token,request_token_secret = get_request_token_oauth1()
-    authorize_url = AUTHENTICATE_URL + request_token.decode("utf-8")
+    authorize_url=AUTHENTICATE_URL+request_token.decode("utf-8")
     session["request_token"]=request_token.decode("utf-8")
     session["request_token_secret"]=request_token_secret.decode("utf-8")
-    return render_template("oauth1.html",authorize_url=authorize_url)
+    return render_template("twitter.html",authorize_url=authorize_url)
 @app.route('/twitter_callback')
 def twitter_callback():
     request_token=session["request_token"]
@@ -121,4 +120,6 @@ def twitter_callback():
     session["access_token"]= access_token.decode("utf-8")
     session["access_token_secret"]= access_token_secret.decode("utf-8")
     return redirect('/vertweet')
+if __name__ == '__main__':
+    port=os.environ["PORT"]
 app.run('0.0.0.0',int(port), debug=True)

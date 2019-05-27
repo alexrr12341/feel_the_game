@@ -20,7 +20,7 @@
 	<div class="estadisticas_lolforti" style="background-image: url('../static/images/leagueoflegends3.jpg')">
 		<h1>Estadísticas League of Legends</h1>
 		<div>
-			<form action="{{url_for('procesar_lol',nombre={{invocador}},region={{region}})}}" method="post">
+			<form action="/leagueoflegends" method="post">
 			<p>
 			Invocador: <input type="text" name="invocador" autofocus required/>
 			<select name="region">

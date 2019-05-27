@@ -89,21 +89,20 @@ UPDATE_URL = 'https://api.twitter.com/1.1/statuses/update.json'
 CONSUMER_KEY = os.environ['CONSUMER_KEY']
 CONSUMER_SECRET = os.environ['CONSUMER_SECRET']
 def get_request_token_oauth1():
-    oauth = OAuth1(os.environ["CONSUMER_KEY"],
-                  client_secret=os.environ["CONSUMER_SECRET"])
-    r = requests.post(url=REQUEST_TOKEN_URL, auth=oauth)
-    credentials = parse_qs(r.content)
-    session["screen_name"] = credentials.get(b'screen_name')[0]
-    return credentials.get(b'oauth_token')[0],credentials.get(b'oauth_token_secret')[0]
+	oauth = OAuth1(CONSUMER_KEY,
+				client_secret=CONSUMER_SECRET)
+	r = requests.post(url=REQUEST_TOKEN_URL, auth=oauth)
+	credentials = parse_qs(r.content)
+	return credentials.get(b'oauth_token')[0]
 
-def get_access_token_oauth1(request_token,request_token_secret,verifier):
-    oauth = OAuth1(os.environ["CONSUMER_KEY"],
-                   client_secret=os.environ["CONSUMER_SECRET"],
-                   resource_owner_key=request_token,
-                   resource_owner_secret=request_token_secret,
-                   verifier=verifier,)
-    r = requests.post(url=ACCESS_TOKEN_URL, auth=oauth)
-    credentials = parse_qs(r.content)
+def get_access_token_oauth1(request_token,verifier):
+	oauth = OAuth1(CONSUMER_KEY,
+					client_secret=CONSUMER_SECRET,
+					resource_owner_key=request_token,
+					verifier=verifier,)
+	r = requests.post(url=ACCESS_TOKEN_URL, auth=oauth)
+	credentials = parse_qs(r.content)
+	session["screen_name"] = credentials.get(b'screen_name')[0]
     return credentials.get(b'oauth_token')[0],credentials.get(b'oauth_token_secret')[0]
 @app.route('/twitter',methods=['POST','GET'])
 def twitter():

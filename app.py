@@ -38,6 +38,8 @@ def procesar_lol():
             liga2=liga['Liga']
     except:
         liga2='UNRANKED'
+    session['liga']=liga2
+    session['victorias']=liga['Victorias']
     maestrias=obtener_maestrias(region,invocador)
     historial=obtener_historial(region,invocador)
     return render_template('leagueoflegends.html',base=base,invocador=invocador,liga=liga,maestrias=maestrias,historial=historial,liga2=liga2)
@@ -127,9 +129,11 @@ def twitter_callback():
 @app.route('/twittear')
 def twittear():
     invocador=session['invocador']
-    update = '''%s es prueba y su rango es prueba
+    liga=session['liga']
+    victorias=session['victorias']
+    update = '''Hola, mi nombre en el LeagueOfLegends es %s soy %s y tengo %s victorias de rankeds.
 				Mira tus estadísticas en:
-				https://feelthegame.herokuapp.com/'''%(invocador)
+				https://feelthegame.herokuapp.com/'''%(invocador,liga,victorias)
     post = {"status": update}
     access_token=session["access_token"]
     access_token_secret=session["access_token_secret"]

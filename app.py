@@ -138,7 +138,7 @@ def twittear():
     if r.status_code==200:
         return redirect('/leagueoflegends')
     else:
-        return redirect('/twitter')
+        return redirect('/')
 if __name__ == '__main__':
     port=os.environ["PORT"]
 app.run('0.0.0.0',int(port), debug=True)

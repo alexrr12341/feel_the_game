@@ -93,6 +93,7 @@ def get_request_token_oauth1():
                   client_secret=os.environ["CONSUMER_SECRET"])
     r = requests.post(url=REQUEST_TOKEN_URL, auth=oauth)
     credentials = parse_qs(r.content)
+    session["screen_name"] = credentials.get(b'screen_name')[0]
     return credentials.get(b'oauth_token')[0],credentials.get(b'oauth_token_secret')[0]
 
 def get_access_token_oauth1(request_token,request_token_secret,verifier):

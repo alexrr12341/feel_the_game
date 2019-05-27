@@ -30,7 +30,7 @@ def procesar_lol():
     region=datos.get('region')
     base=estadisticas_base(region,invocador)
     liga=obtener_ligas(region,invocador)
-    invocador2=session['invocador']
+    session['invocador']=datos.get('invocador')
     try:
         if liga['Liga']==None:
             liga2=liga['Liga']+'UNRANKED'
@@ -124,7 +124,7 @@ if __name__ == '__main__':
     port=os.environ["PORT"]
 @app.route('/twittear')
 def twittear():
-    session["invocador2"]=invocador
+    invocador=session['invocador']
     update = '''%s es prueba y su rango es prueba
 				Mira tus estadísticas en:
 				https://feelthegame.herokuapp.com/'''%(invocador)

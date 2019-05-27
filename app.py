@@ -24,14 +24,13 @@ def procesar_fortnite():
     datosf=estadisticas_fortnite(plat,jugador)    
     return render_template('fortnite.html',datosf=datosf,jugador=jugador)
 @app.route('/leagueoflegends',methods=['POST'])
-def procesar_lol():
+def procesar_lol(region,invocador):
     datos=request.form
     invocador=datos['invocador']
     region=datos['region']
     base=estadisticas_base(region,invocador)
     liga=obtener_ligas(region,invocador)
     try:
-        #Esto es la mayor tonteria que he hecho en programación(es por si un jugador no tiene liga, que suele pasar).
         if liga['Liga']==None:
             liga2=liga['Liga']+'UNRANKED'
         else:

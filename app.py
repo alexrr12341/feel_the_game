@@ -24,10 +24,10 @@ def procesar_fortnite():
     datosf=estadisticas_fortnite(plat,jugador)    
     return render_template('fortnite.html',datosf=datosf,jugador=jugador)
 @app.route('/leagueoflegends',methods=['POST'])
-def procesar_lol(region,invocador):
+def procesar_lol():
     datos=request.form
-    invocador=datos['invocador']
-    region=datos['region']
+    invocador=datos.get('invocador')
+    region=datos.get('region')
     base=estadisticas_base(region,invocador)
     liga=obtener_ligas(region,invocador)
     try:

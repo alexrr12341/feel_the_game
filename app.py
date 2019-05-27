@@ -123,7 +123,7 @@ def twitter_callback():
     access_token,access_token_secret= get_access_token_oauth1(request_token,request_token_secret,verifier)
     session["access_token"]= access_token.decode("utf-8")
     session["access_token_secret"]= access_token_secret.decode("utf-8")
-    return redirect('/vertweet')
+    return redirect('/twittear')
 @app.route('/twittear')
 def twittear():
     invocador=session['invocador']

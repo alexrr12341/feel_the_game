@@ -140,9 +140,7 @@ def twittear():
     oauth = OAuth1(CONSUMER_KEY,client_secret=CONSUMER_SECRET,resource_owner_key=access_token,resource_owner_secret=access_token_secret)
     r=requests.post(UPDATE_URL, data=post, auth=oauth)
     if r.status_code==200:
-        return redirect('/leagueoflegends')
-    else:
-        return redirect('/')
+        return redirect('https://twitter.com/')
 if __name__ == '__main__':
     port=os.environ["PORT"]
 app.run('0.0.0.0',int(port), debug=True)

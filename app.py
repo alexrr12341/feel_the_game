@@ -131,12 +131,21 @@ def twitter_callback():
     return redirect('/twittear')
 @app.route('/twittear')
 def twittear():
-    invocador=session['invocador']
-    liga=session['liga']
-    victorias=session['victorias']
-    update = '''Hola, mi nombre en el LeagueOfLegends es %s soy %s y tengo %s victorias de rankeds.
-				Mira tus estadísticas en:
-				https://feelthegame.herokuapp.com/'''%(invocador,liga,victorias)
+    try:
+        invocador=session['invocador']
+        liga=session['liga']
+        victorias=session['victorias']
+        update = '''Hola, mi nombre en el LeagueOfLegends es %s soy %s y tengo %s victorias de rankeds.
+                    Mira tus estadísticas en:
+                    https://feelthegame.herokuapp.com/'''%(invocador,liga,victorias)
+    except:
+        nombre=session['nombre']
+        victorias=session['victorias']
+        kills=session['kills']
+        update = '''Hola, mi nombre en el Fortnite es %s tengo %s victorias y he hecho %s kills en total.
+                    Mira tus estadísticas en:
+                    https://feelthegame.herokuapp.com/'''%(nombre,victorias,kills)
+    
     post = {"status": update}
     access_token=session["access_token"]
     access_token_secret=session["access_token_secret"]

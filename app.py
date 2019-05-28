@@ -21,7 +21,10 @@ def procesar_fortnite():
     datos=request.form
     plat=datos['plataforma']
     jugador=datos['cuenta']
-    datosf=estadisticas_fortnite(plat,jugador)    
+    session['nombre']=jugador
+    datosf=estadisticas_fortnite(plat,jugador)   
+    session['victorias']=datosf[0]['Wins']
+    session['kills']=datosf[0]['Kills'] 
     return render_template('fortnite.html',datosf=datosf,jugador=jugador)
 @app.route('/leagueoflegends',methods=['POST'])
 def procesar_lol():
@@ -159,12 +162,12 @@ def twitter_callback2():
     return redirect('/twittear2')
 @app.route('/twittear2')
 def twittear2():
-    invocador=session['invocador']
-    liga=session['liga']
+    nombre=session['nombre']
     victorias=session['victorias']
-    update = '''Hola, mi nombre en el LeagueOfLegends es %s soy %s y tengo %s victorias de rankeds.
+    kills=session['kills']
+    update = '''Hola, mi nombre en el Fortnite es %s tengo %s victorias y he hecho %s kills en total.
 				Mira tus estadísticas en:
-				https://feelthegame.herokuapp.com/'''%(invocador,liga,victorias)
+				https://feelthegame.herokuapp.com/'''%(nombre,victorias,kills)
     post = {"status": update}
     access_token=session["access_token"]
     access_token_secret=session["access_token_secret"]

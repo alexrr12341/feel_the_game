@@ -42,7 +42,7 @@ def procesar_lol():
     except:
         liga2='UNRANKED'
     session['liga']=liga2
-    session['victorias']=liga['Victorias']
+    session['victoriaslol']=liga['Victorias']
     maestrias=obtener_maestrias(region,invocador)
     historial=obtener_historial(region,invocador)
     return render_template('leagueoflegends.html',base=base,invocador=invocador,liga=liga,maestrias=maestrias,historial=historial,liga2=liga2)
@@ -135,10 +135,10 @@ def twittear():
     try:
         invocador=session['invocador']
         liga=session['liga']
-        victorias=session['victorias']
+        victoriaslol=session['victoriaslol']
         update = '''Hola, mi nombre en el LeagueOfLegends es %s soy %s y tengo %s victorias de rankeds.
                     Mira tus estadísticas en:
-                    https://feelthegame.herokuapp.com/'''%(invocador,liga,victorias)
+                    https://feelthegame.herokuapp.com/'''%(invocador,liga,victoriaslol)
     except:
         ''
     else:

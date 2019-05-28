@@ -1,12 +1,12 @@
 <!doctype html>
 {% extends "base.html" %}
 {% block metasfortnite %}
-	<div class="campeones_gratis" style="background-image: url('../static/images/fortnite6.jpg')">
+	<div id="metas" class="campeones_gratis" style="background-image: url('../static/images/fortnite6.jpg')">
 		<h1 style="color:black;">Metas y Objetivos Fortnite</h1>
 		<h4 style="color:yellow;">*Tienes que decir tu objetivo, el programa te dirá cuanto te queda*</h4>
 		<br/>
 		<div>
-			<form action="/metas/fortnite" method="post">
+			<form action="/metas/fortnite#objetivos" method="post">
 			<p style="color:yellow;">
 			Cuenta: <input type="text" name="cuenta" autofocus required/>
 			<select name="plataforma">

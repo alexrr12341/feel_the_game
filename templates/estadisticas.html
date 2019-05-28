@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block contenido1 %}
-	<div id="llamada1" class="estadisticas_lolforti" style="background-image: url('../static/images/fortnite8.jpg')">
+	<div id="juegos" class="estadisticas_lolforti" style="background-image: url('../static/images/fortnite8.jpg')">
 		<h1>Estadísticas Fortnite</h1>
 		<div>
-			<form action="/fortnite" method="post">
+			<form action="/fortnite#estadisticas" method="post">
 			<p>
 			Cuenta: <input type="text" name="cuenta" autofocus required/>
 			<select name="plataforma">
@@ -20,7 +20,7 @@
 	<div class="estadisticas_lolforti" style="background-image: url('../static/images/leagueoflegends3.jpg')">
 		<h1>Estadísticas League of Legends</h1>
 		<div>
-			<form action="/leagueoflegends" method="post">
+			<form action="/leagueoflegends#estadisticas" method="post">
 			<p>
 			Invocador: <input type="text" name="invocador" autofocus required/>
 			<select name="region">

@@ -151,40 +151,7 @@ def twittear():
     access_token_secret=session["access_token_secret"]
     oauth = OAuth1(CONSUMER_KEY,client_secret=CONSUMER_SECRET,resource_owner_key=access_token,resource_owner_secret=access_token_secret)
     r=requests.post(UPDATE_URL, data=post, auth=oauth)
-    if r.status_code==200:
-        return redirect('https://twitter.com/')
-
-@app.route('/twitter2')
-def twitter2():
-    request_token,request_token_secret = get_request_token_oauth1()
-    authorize_url = AUTHENTICATE_URL + request_token.decode("utf-8")
-    session["request_token"]=request_token.decode("utf-8")
-    session["request_token_secret"]=request_token_secret.decode("utf-8")
-    return redirect(authorize_url)
-
-@app.route('/fortnite_callback')
-def twitter_callback2():
-    request_token=session["request_token"]
-    request_token_secret=session["request_token_secret"]
-    verifier  = request.args.get("oauth_verifier")
-    access_token,access_token_secret= get_access_token_oauth1(request_token,request_token_secret,verifier)
-    session["access_token"]= access_token.decode("utf-8")
-    session["access_token_secret"]= access_token_secret.decode("utf-8")
-    return redirect('/twittear2')
-
-@app.route('/twittear2')
-def twittear2():
-    nombre=session['nombre']
-    victorias=session['victorias']
-    kills=session['kills']
-    update = '''Hola, mi nombre en el Fortnite es %s tengo %s victorias y he hecho %s kills en total.
-				Mira tus estadísticas en:
-				https://feelthegame.herokuapp.com/'''%(nombre,victorias,kills)
-    post = {"status": update}
-    access_token=session["access_token"]
-    access_token_secret=session["access_token_secret"]
-    oauth = OAuth1(CONSUMER_KEY,client_secret=CONSUMER_SECRET,resource_owner_key=access_token,resource_owner_secret=access_token_secret)
-    r=requests.post(UPDATE_URL, data=post, auth=oauth)
+    session.clear()
     if r.status_code==200:
         return redirect('https://twitter.com/')
 if __name__ == '__main__':

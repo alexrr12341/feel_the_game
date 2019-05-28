@@ -139,6 +139,8 @@ def twittear():
                     Mira tus estadísticas en:
                     https://feelthegame.herokuapp.com/'''%(invocador,liga,victorias)
     except:
+        ''
+    else:
         nombre=session['nombre']
         victorias=session['victorias']
         kills=session['kills']

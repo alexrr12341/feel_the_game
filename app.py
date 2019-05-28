@@ -131,6 +131,7 @@ def twitter_callback():
     return redirect('/twittear')
 @app.route('/twittear')
 def twittear():
+    session.clear()
     try:
         invocador=session['invocador']
         liga=session['liga']

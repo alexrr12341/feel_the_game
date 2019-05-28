@@ -504,24 +504,11 @@ input[type=submit]:hover {
 
 
 
-.twittear {
-	margin: -50px 0 50px 10%;
-	width: 750px;
-}
-
-.twittear a {
-	background-color: #2279CF;
-	color: black;
-	text-align: center;
-	box-shadow: 0px 0px 2px 5px #FC5252;
-	font-weight: bold;
-}
-
-.twittear {
-	margin: -50px 0 50px 10%;
-	width: 750px;
-}
-
 .twittear a:hover {
 	background-color: #FC5252;
+}
+
+div.twittear{
+	text-align: center;
+	border: 1px red;
 }
